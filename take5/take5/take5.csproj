@@ -108,6 +108,7 @@
     </Compile>
     <Compile Include="Classes\DatabaseConnection.cs" />
     <Compile Include="Classes\Middleware.cs" />
+    <Compile Include="Classes\Person.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>

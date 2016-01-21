@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace take5.Classes
 {
-    class DatabaseConnection
+    class Person
     {
-        public DatabaseConnection()
-        {
-            
-        }
+        private int userID;
+        private string userEmail;
     }
 }
