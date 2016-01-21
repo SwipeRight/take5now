@@ -9,7 +9,15 @@
 
     <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
         <Button Name="testButton" Content="Test" HorizontalAlignment="Left" Margin="594,115,0,0" VerticalAlignment="Top" />
+        <Button Content="Hour" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="216,305,0,0">
+        	<Button.DataContext>
+        		<local:MinuteSelection/>
+        	</Button.DataContext>
+        </Button>
+        <Button Content="Minute" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="359,305,0,0"/>
+        <Button Content="Activity" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="512,305,0,0"/>
         
 
     </Grid>
 </Page>
+
