@@ -11,6 +11,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using take5.Classes;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -26,6 +27,7 @@ namespace take5
             this.InitializeComponent();
         }
 
+        private Person currentUser;
         /// <summary>
         /// Invoked when this page is about to be displayed in a Frame.
         /// </summary>
@@ -34,5 +36,6 @@ namespace take5
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
         }
+
     }
 }

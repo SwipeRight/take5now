@@ -14,6 +14,7 @@ namespace take5.Classes
         private void login()
         {
             DatabaseConnection dbConn = new DatabaseConnection();
+            this.localUser = new Person();
         }
 
         private void addPersonToQueue()

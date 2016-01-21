@@ -1,14 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+
+using System;
 
 namespace take5.Classes
 {
     class Person
     {
-        private int userID;
-        private string userEmail;
+        private int userID { get; set; }
+        private string userEmail { get; set; }
+
+        public Person()
+        {
+            this.userID = 0;
+            this.userEmail = "";
+
+            getUserDetails();
+        }
+
+        private async void getUserDetails()
+        {
+            
+        }
+
     }
 }
