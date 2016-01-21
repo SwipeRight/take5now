@@ -38,9 +38,9 @@ namespace take5
         {
         }
 
-        private void test_Click(object sender, RoutedEventArgs e)
+        private void testOnClick(object sender, RoutedEventArgs e)
         {
-            
+            DatabaseConnection dbConn = new DatabaseConnection();
         }
 
     }

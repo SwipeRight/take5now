@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Database
 {
-    class Matches
+    class Match
     {
         private int index { get; set; }
         private int userID1 { get; set; }
@@ -18,7 +18,7 @@ namespace Database
         private int activity { get; set; }
         private long timestamp { get; set; }
 
-        public void newMatch(int index, int UserID1, int UserID2, int Activity, long timeStamp)
+        public Match(int index, int UserID1, int UserID2, int Activity, long timeStamp)
         {
             this.index = index;
             this.userID1 = UserID1;
