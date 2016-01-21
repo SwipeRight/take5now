@@ -24,7 +24,7 @@ namespace take5
             return _provider.GetXamlTypeByType(type);
         }
 
-        public global::Windows.UI.Xaml.Markup.IXamlType GetXamlType(global::System.String fullName)
+        public global::Windows.UI.Xaml.Markup.IXamlType GetXamlType(string fullName)
         {
             if(_provider == null)
             {
@@ -49,41 +49,51 @@ namespace take5.take5_XamlTypeInfo
     {
         public global::Windows.UI.Xaml.Markup.IXamlType GetXamlTypeByType(global::System.Type type)
         {
-            string standardName;
-            global::Windows.UI.Xaml.Markup.IXamlType xamlType = null;
-            if(_xamlTypeToStandardName.TryGetValue(type, out standardName))
+            global::Windows.UI.Xaml.Markup.IXamlType xamlType;
+            if (_xamlTypeCacheByType.TryGetValue(type, out xamlType))
             {
-                xamlType = GetXamlTypeByName(standardName);
+                return xamlType;
             }
-            else
+            int typeIndex = LookupTypeIndexByType(type);
+            if(typeIndex != -1)
             {
-                xamlType = GetXamlTypeByName(type.FullName);
+                xamlType = CreateXamlType(typeIndex);
+            }
+            if (xamlType != null)
+            {
+                _xamlTypeCacheByName.Add(xamlType.FullName, xamlType);
+                _xamlTypeCacheByType.Add(xamlType.UnderlyingType, xamlType);
             }
             return xamlType;
         }
 
         public global::Windows.UI.Xaml.Markup.IXamlType GetXamlTypeByName(string typeName)
         {
-            if (global::System.String.IsNullOrEmpty(typeName))
+            if (string.IsNullOrEmpty(typeName))
             {
                 return null;
             }
             global::Windows.UI.Xaml.Markup.IXamlType xamlType;
-            if (_xamlTypes.TryGetValue(typeName, out xamlType))
+            if (_xamlTypeCacheByName.TryGetValue(typeName, out xamlType))
             {
                 return xamlType;
             }
-            xamlType = CreateXamlType(typeName);
+            int typeIndex = LookupTypeIndexByName(typeName);
+            if(typeIndex != -1)
+            {
+                xamlType = CreateXamlType(typeIndex);
+            }
             if (xamlType != null)
             {
-                _xamlTypes.Add(typeName, xamlType);
+                _xamlTypeCacheByName.Add(xamlType.FullName, xamlType);
+                _xamlTypeCacheByType.Add(xamlType.UnderlyingType, xamlType);
             }
             return xamlType;
         }
 
         public global::Windows.UI.Xaml.Markup.IXamlMember GetMemberByLongName(string longMemberName)
         {
-            if (global::System.String.IsNullOrEmpty(longMemberName))
+            if (string.IsNullOrEmpty(longMemberName))
             {
                 return null;
             }
@@ -100,74 +110,124 @@ namespace take5.take5_XamlTypeInfo
             return xamlMember;
         }
 
-        global::System.Collections.Generic.Dictionary<string, global::Windows.UI.Xaml.Markup.IXamlType> _xamlTypes = new global::System.Collections.Generic.Dictionary<string, global::Windows.UI.Xaml.Markup.IXamlType>();
-        global::System.Collections.Generic.Dictionary<string, global::Windows.UI.Xaml.Markup.IXamlMember> _xamlMembers = new global::System.Collections.Generic.Dictionary<string, global::Windows.UI.Xaml.Markup.IXamlMember>();
-        global::System.Collections.Generic.Dictionary<global::System.Type, string> _xamlTypeToStandardName = new global::System.Collections.Generic.Dictionary<global::System.Type, string>();
+        global::System.Collections.Generic.Dictionary<string, global::Windows.UI.Xaml.Markup.IXamlType>
+                _xamlTypeCacheByName = new global::System.Collections.Generic.Dictionary<string, global::Windows.UI.Xaml.Markup.IXamlType>();
 
-        private void AddToMapOfTypeToStandardName(global::System.Type t, global::System.String str)
+        global::System.Collections.Generic.Dictionary<global::System.Type, global::Windows.UI.Xaml.Markup.IXamlType>
+                _xamlTypeCacheByType = new global::System.Collections.Generic.Dictionary<global::System.Type, global::Windows.UI.Xaml.Markup.IXamlType>();
+
+        global::System.Collections.Generic.Dictionary<string, global::Windows.UI.Xaml.Markup.IXamlMember>
+                _xamlMembers = new global::System.Collections.Generic.Dictionary<string, global::Windows.UI.Xaml.Markup.IXamlMember>();
+
+        string[] _typeNameTable = null;
+        global::System.Type[] _typeTable = null;
+
+        private void InitTypeTables()
         {
-            if(!_xamlTypeToStandardName.ContainsKey(t))
+            _typeNameTable = new string[7];
+            _typeNameTable[0] = "take5.Common.LayoutAwarePage";
+            _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
+            _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
+            _typeNameTable[3] = "take5.BasicPage1";
+            _typeNameTable[4] = "take5.ItemsPage1";
+            _typeNameTable[5] = "take5.MinuteSelection";
+            _typeNameTable[6] = "take5.MainPage";
+
+            _typeTable = new global::System.Type[7];
+            _typeTable[0] = typeof(global::take5.Common.LayoutAwarePage);
+            _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
+            _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
+            _typeTable[3] = typeof(global::take5.BasicPage1);
+            _typeTable[4] = typeof(global::take5.ItemsPage1);
+            _typeTable[5] = typeof(global::take5.MinuteSelection);
+            _typeTable[6] = typeof(global::take5.MainPage);
+        }
+
+        private int LookupTypeIndexByName(string typeName)
+        {
+            if (_typeNameTable == null)
             {
-                _xamlTypeToStandardName.Add(t, str);
+                InitTypeTables();
             }
+            for (int i=0; i<_typeNameTable.Length; i++)
+            {
+                if(0 == string.CompareOrdinal(_typeNameTable[i], typeName))
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
+
+        private int LookupTypeIndexByType(global::System.Type type)
+        {
+            if (_typeTable == null)
+            {
+                InitTypeTables();
+            }
+            for(int i=0; i<_typeTable.Length; i++)
+            {
+                if(type == _typeTable[i])
+                {
+                    return i;
+                }
+            }
+            return -1;
         }
 
         private object Activate_0_LayoutAwarePage() { return new global::take5.Common.LayoutAwarePage(); }
+        private object Activate_3_BasicPage1() { return new global::take5.BasicPage1(); }
+        private object Activate_4_ItemsPage1() { return new global::take5.ItemsPage1(); }
+        private object Activate_5_MinuteSelection() { return new global::take5.MinuteSelection(); }
+        private object Activate_6_MainPage() { return new global::take5.MainPage(); }
 
-        private object Activate_1_BasicPage1() { return new global::take5.BasicPage1(); }
-
-        private object Activate_2_HourSelection() { return new global::take5.HourSelection(); }
-
-        private object Activate_3_MinuteSelection() { return new global::take5.MinuteSelection(); }
-
-        private object Activate_4_MainPage() { return new global::take5.MainPage(); }
-
-
-        private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(string typeName)
+        private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
             global::take5.take5_XamlTypeInfo.XamlSystemBaseType xamlType = null;
             global::take5.take5_XamlTypeInfo.XamlUserType userType;
+            string typeName = _typeNameTable[typeIndex];
+            global::System.Type type = _typeTable[typeIndex];
 
-            switch (typeName)
+            switch (typeIndex)
             {
-            case "Windows.UI.Xaml.Controls.Page":
-                xamlType = new global::take5.take5_XamlTypeInfo.XamlSystemBaseType(typeName, typeof(global::Windows.UI.Xaml.Controls.Page));
-                break;
 
-            case "Windows.UI.Xaml.Controls.UserControl":
-                xamlType = new global::take5.take5_XamlTypeInfo.XamlSystemBaseType(typeName, typeof(global::Windows.UI.Xaml.Controls.UserControl));
-                break;
-
-            case "take5.Common.LayoutAwarePage":
-                userType = new global::take5.take5_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::take5.Common.LayoutAwarePage), GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+            case 0:   //  take5.Common.LayoutAwarePage
+                userType = new global::take5.take5_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
                 userType.Activator = Activate_0_LayoutAwarePage;
                 xamlType = userType;
                 break;
 
-            case "take5.BasicPage1":
-                userType = new global::take5.take5_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::take5.BasicPage1), GetXamlTypeByName("take5.Common.LayoutAwarePage"));
-                userType.Activator = Activate_1_BasicPage1;
+            case 1:   //  Windows.UI.Xaml.Controls.Page
+                xamlType = new global::take5.take5_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 2:   //  Windows.UI.Xaml.Controls.UserControl
+                xamlType = new global::take5.take5_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 3:   //  take5.BasicPage1
+                userType = new global::take5.take5_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("take5.Common.LayoutAwarePage"));
+                userType.Activator = Activate_3_BasicPage1;
                 xamlType = userType;
                 break;
 
-            case "take5.HourSelection":
-                userType = new global::take5.take5_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::take5.HourSelection), GetXamlTypeByName("take5.Common.LayoutAwarePage"));
-                userType.Activator = Activate_2_HourSelection;
+            case 4:   //  take5.ItemsPage1
+                userType = new global::take5.take5_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("take5.Common.LayoutAwarePage"));
+                userType.Activator = Activate_4_ItemsPage1;
                 xamlType = userType;
                 break;
 
-            case "take5.MinuteSelection":
-                userType = new global::take5.take5_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::take5.MinuteSelection), GetXamlTypeByName("take5.Common.LayoutAwarePage"));
-                userType.Activator = Activate_3_MinuteSelection;
+            case 5:   //  take5.MinuteSelection
+                userType = new global::take5.take5_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("take5.Common.LayoutAwarePage"));
+                userType.Activator = Activate_5_MinuteSelection;
                 xamlType = userType;
                 break;
 
-            case "take5.MainPage":
-                userType = new global::take5.take5_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::take5.MainPage), GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_4_MainPage;
+            case 6:   //  take5.MainPage
+                userType = new global::take5.take5_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_6_MainPage;
                 xamlType = userType;
                 break;
-
             }
             return xamlType;
         }
@@ -180,7 +240,6 @@ namespace take5.take5_XamlTypeInfo
             // No Local Properties
             return xamlMember;
         }
-
     }
 
     
@@ -216,13 +275,14 @@ namespace take5.take5_XamlTypeInfo
         virtual public bool IsDictionary { get { throw new global::System.NotImplementedException(); } }
         virtual public bool IsMarkupExtension { get { throw new global::System.NotImplementedException(); } }
         virtual public bool IsBindable { get { throw new global::System.NotImplementedException(); } }
+        virtual public bool IsReturnTypeStub { get { throw new global::System.NotImplementedException(); } }
         virtual public global::Windows.UI.Xaml.Markup.IXamlType ItemType { get { throw new global::System.NotImplementedException(); } }
         virtual public global::Windows.UI.Xaml.Markup.IXamlType KeyType { get { throw new global::System.NotImplementedException(); } }
         virtual public object ActivateInstance() { throw new global::System.NotImplementedException(); }
         virtual public void AddToMap(object instance, object key, object item)  { throw new global::System.NotImplementedException(); }
         virtual public void AddToVector(object instance, object item)  { throw new global::System.NotImplementedException(); }
         virtual public void RunInitializer()   { throw new global::System.NotImplementedException(); }
-        virtual public object CreateFromString(global::System.String input)   { throw new global::System.NotImplementedException(); }
+        virtual public object CreateFromString(string input)   { throw new global::System.NotImplementedException(); }
     }
     
     internal delegate object Activator();
@@ -239,6 +299,7 @@ namespace take5.take5_XamlTypeInfo
         bool _isArray;
         bool _isMarkupExtension;
         bool _isBindable;
+        bool _isReturnTypeStub;
 
         string _contentPropertyName;
         string _itemTypeName;
@@ -262,6 +323,7 @@ namespace take5.take5_XamlTypeInfo
         override public bool IsDictionary { get { return (DictionaryAdd != null); } }
         override public bool IsMarkupExtension { get { return _isMarkupExtension; } }
         override public bool IsBindable { get { return _isBindable; } }
+        override public bool IsReturnTypeStub { get { return _isReturnTypeStub; } }
 
         override public global::Windows.UI.Xaml.Markup.IXamlMember ContentProperty
         {
@@ -312,18 +374,18 @@ namespace take5.take5_XamlTypeInfo
             System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(UnderlyingType.TypeHandle);
         }
 
-        override public global::System.Object CreateFromString(global::System.String input)
+        override public object CreateFromString(string input)
         {
             if (_enumValues != null)
             {
-                global::System.Int32 value = 0;
+                int value = 0;
 
                 string[] valueParts = input.Split(',');
 
                 foreach (string valuePart in valueParts) 
                 {
                     object partValue;
-                    global::System.Int32 enumFieldValue = 0;
+                    int enumFieldValue = 0;
                     try
                     {
                         if (_enumValues.TryGetValue(valuePart.Trim(), out partValue))
@@ -340,7 +402,7 @@ namespace take5.take5_XamlTypeInfo
                             {
                                 foreach( string key in _enumValues.Keys )
                                 {
-                                    if( global::System.String.Compare(valuePart.Trim(), key, global::System.StringComparison.OrdinalIgnoreCase) == 0 )
+                                    if( string.Compare(valuePart.Trim(), key, global::System.StringComparison.OrdinalIgnoreCase) == 0 )
                                     {
                                         if( _enumValues.TryGetValue(key.Trim(), out partValue) )
                                         {
@@ -388,6 +450,11 @@ namespace take5.take5_XamlTypeInfo
         public void SetIsBindable()
         {
             _isBindable = true;
+        }
+
+        public void SetIsReturnTypeStub()
+        {
+            _isReturnTypeStub = true;
         }
 
         public void SetItemTypeName(string itemTypeName)
@@ -450,7 +517,7 @@ namespace take5.take5_XamlTypeInfo
             get { return _provider.GetXamlTypeByName(_typeName); }
         }
 
-        public void SetTargetTypeName(global::System.String targetTypeName)
+        public void SetTargetTypeName(string targetTypeName)
         {
             _targetTypeName = targetTypeName;
         }
