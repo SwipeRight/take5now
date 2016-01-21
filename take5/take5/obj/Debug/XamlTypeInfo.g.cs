@@ -124,23 +124,21 @@ namespace take5.take5_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[7];
+            _typeNameTable = new string[6];
             _typeNameTable[0] = "take5.Common.LayoutAwarePage";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
             _typeNameTable[3] = "take5.BasicPage1";
-            _typeNameTable[4] = "take5.ItemsPage1";
+            _typeNameTable[4] = "take5.HourSelection";
             _typeNameTable[5] = "take5.MinuteSelection";
-            _typeNameTable[6] = "take5.MainPage";
 
-            _typeTable = new global::System.Type[7];
+            _typeTable = new global::System.Type[6];
             _typeTable[0] = typeof(global::take5.Common.LayoutAwarePage);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
             _typeTable[3] = typeof(global::take5.BasicPage1);
-            _typeTable[4] = typeof(global::take5.ItemsPage1);
+            _typeTable[4] = typeof(global::take5.HourSelection);
             _typeTable[5] = typeof(global::take5.MinuteSelection);
-            _typeTable[6] = typeof(global::take5.MainPage);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -177,9 +175,8 @@ namespace take5.take5_XamlTypeInfo
 
         private object Activate_0_LayoutAwarePage() { return new global::take5.Common.LayoutAwarePage(); }
         private object Activate_3_BasicPage1() { return new global::take5.BasicPage1(); }
-        private object Activate_4_ItemsPage1() { return new global::take5.ItemsPage1(); }
+        private object Activate_4_HourSelection() { return new global::take5.HourSelection(); }
         private object Activate_5_MinuteSelection() { return new global::take5.MinuteSelection(); }
-        private object Activate_6_MainPage() { return new global::take5.MainPage(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -211,21 +208,15 @@ namespace take5.take5_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 4:   //  take5.ItemsPage1
+            case 4:   //  take5.HourSelection
                 userType = new global::take5.take5_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("take5.Common.LayoutAwarePage"));
-                userType.Activator = Activate_4_ItemsPage1;
+                userType.Activator = Activate_4_HourSelection;
                 xamlType = userType;
                 break;
 
             case 5:   //  take5.MinuteSelection
                 userType = new global::take5.take5_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("take5.Common.LayoutAwarePage"));
                 userType.Activator = Activate_5_MinuteSelection;
-                xamlType = userType;
-                break;
-
-            case 6:   //  take5.MainPage
-                userType = new global::take5.take5_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_6_MainPage;
                 xamlType = userType;
                 break;
             }

@@ -39,20 +39,17 @@
     <AppxPackagedFile Include="C:\Users\Martin_Nikolaev\Source\Repos\take5now\take5\take5\bin\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Martin_Nikolaev\Source\Repos\take5now\take5\take5\bin\Debug\Common\ActivitySelection.xbf">
-      <PackagePath>Common\ActivitySelection.xbf</PackagePath>
+    <AppxPackagedFile Include="C:\Users\Martin_Nikolaev\Source\Repos\take5now\take5\take5\bin\Debug\ActivitySelection.xbf">
+      <PackagePath>ActivitySelection.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Martin_Nikolaev\Source\Repos\take5now\take5\take5\bin\Debug\Common\HourSelection.xbf">
-      <PackagePath>Common\HourSelection.xbf</PackagePath>
+    <AppxPackagedFile Include="C:\Users\Martin_Nikolaev\Source\Repos\take5now\take5\take5\bin\Debug\HourSelection.xbf">
+      <PackagePath>HourSelection.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Martin_Nikolaev\Source\Repos\take5now\take5\take5\bin\Debug\Common\MinuteSelection.xbf">
-      <PackagePath>Common\MinuteSelection.xbf</PackagePath>
+    <AppxPackagedFile Include="C:\Users\Martin_Nikolaev\Source\Repos\take5now\take5\take5\bin\Debug\MinuteSelection.xbf">
+      <PackagePath>MinuteSelection.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Martin_Nikolaev\Source\Repos\take5now\take5\take5\bin\Debug\Common\StandardStyles.xbf">
       <PackagePath>Common\StandardStyles.xbf</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Martin_Nikolaev\Source\Repos\take5now\take5\take5\bin\Debug\MainPage.xbf">
-      <PackagePath>MainPage.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Martin_Nikolaev\Source\Repos\take5now\take5\take5\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
