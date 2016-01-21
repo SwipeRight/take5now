@@ -2,9 +2,9 @@ Assets\Logo.png
 Assets\SmallLogo.png
 Assets\SplashScreen.png
 Assets\StoreLogo.png
+ActivitySelection.xaml
 App.xaml
-Common\ActivitySelection.xaml
-Common\HourSelection.xaml
-Common\MinuteSelection.xaml
 Common\StandardStyles.xaml
+HourSelection.xaml
 MainPage.xaml
+MinuteSelection.xaml

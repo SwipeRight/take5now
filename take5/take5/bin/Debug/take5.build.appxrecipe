@@ -38,14 +38,14 @@
     <AppxPackagedFile Include="C:\Users\kieran_durcan\Source\Repos\take5now\take5\take5\bin\Debug\App.xaml">
       <PackagePath>App.xaml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kieran_durcan\Source\Repos\take5now\take5\take5\bin\Debug\Common\ActivitySelection.xaml">
-      <PackagePath>Common\ActivitySelection.xaml</PackagePath>
+    <AppxPackagedFile Include="C:\Users\kieran_durcan\Source\Repos\take5now\take5\take5\bin\Debug\ActivitySelection.xaml">
+      <PackagePath>ActivitySelection.xaml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kieran_durcan\Source\Repos\take5now\take5\take5\bin\Debug\Common\HourSelection.xaml">
-      <PackagePath>Common\HourSelection.xaml</PackagePath>
+    <AppxPackagedFile Include="C:\Users\kieran_durcan\Source\Repos\take5now\take5\take5\bin\Debug\HourSelection.xaml">
+      <PackagePath>HourSelection.xaml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kieran_durcan\Source\Repos\take5now\take5\take5\bin\Debug\Common\MinuteSelection.xaml">
-      <PackagePath>Common\MinuteSelection.xaml</PackagePath>
+    <AppxPackagedFile Include="C:\Users\kieran_durcan\Source\Repos\take5now\take5\take5\bin\Debug\MinuteSelection.xaml">
+      <PackagePath>MinuteSelection.xaml</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\kieran_durcan\Source\Repos\take5now\take5\take5\bin\Debug\Common\StandardStyles.xaml">
       <PackagePath>Common\StandardStyles.xaml</PackagePath>

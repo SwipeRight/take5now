@@ -116,7 +116,7 @@ namespace take5.take5_XamlTypeInfo
 
         private object Activate_1_BasicPage1() { return new global::take5.BasicPage1(); }
 
-        private object Activate_2_ItemsPage1() { return new global::take5.ItemsPage1(); }
+        private object Activate_2_HourSelection() { return new global::take5.HourSelection(); }
 
         private object Activate_3_MinuteSelection() { return new global::take5.MinuteSelection(); }
 
@@ -150,9 +150,9 @@ namespace take5.take5_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case "take5.ItemsPage1":
-                userType = new global::take5.take5_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::take5.ItemsPage1), GetXamlTypeByName("take5.Common.LayoutAwarePage"));
-                userType.Activator = Activate_2_ItemsPage1;
+            case "take5.HourSelection":
+                userType = new global::take5.take5_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::take5.HourSelection), GetXamlTypeByName("take5.Common.LayoutAwarePage"));
+                userType.Activator = Activate_2_HourSelection;
                 xamlType = userType;
                 break;
 

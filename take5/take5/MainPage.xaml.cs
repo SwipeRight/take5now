@@ -25,8 +25,10 @@ namespace take5
     {
         public MainPage()
         {
-            this.InitializeComponent();
+            
         }
+
+        int i = 142;
 
         private Person currentUser;
         /// <summary>
@@ -38,9 +40,9 @@ namespace take5
         {
         }
 
-        private void test_Click(object sender, RoutedEventArgs e)
+        private void testClick(object sender, RoutedEventArgs e)
         {
-            
+            this.Frame.Navigate(typeof(HourSelection), i);
         }
 
     }

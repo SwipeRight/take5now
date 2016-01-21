@@ -20,9 +20,9 @@ namespace take5
     /// A page that displays a collection of item previews.  In the Split Application this page
     /// is used to display and select one of the available groups.
     /// </summary>
-    public sealed partial class ItemsPage1 : take5.Common.LayoutAwarePage
+    public sealed partial class HourSelection : take5.Common.LayoutAwarePage
     {
-        public ItemsPage1()
+        public HourSelection()
         {
             this.InitializeComponent();
         }
@@ -36,6 +36,14 @@ namespace take5
         /// </param>
         /// <param name="pageState">A dictionary of state preserved by this page during an earlier
         /// session.  This will be null the first time a page is visited.</param>
+
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            var parameter = e.Parameter as string;
+            this.DataContext = this;
+        }
+
         protected override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
         {
             // TODO: Assign a bindable collection of items to this.DefaultViewModel["Items"]
