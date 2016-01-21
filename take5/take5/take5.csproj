@@ -117,17 +117,17 @@
     <Compile Include="Classes\DatabaseConnection.cs" />
     <Compile Include="Classes\Middleware.cs" />
     <Compile Include="Classes\Person.cs" />
-    <Compile Include="Common\ActivitySelection.xaml.cs">
+    <Compile Include="ActivitySelection.xaml.cs">
       <DependentUpon>ActivitySelection.xaml</DependentUpon>
     </Compile>
     <Compile Include="Common\BindableBase.cs" />
     <Compile Include="Common\BooleanNegationConverter.cs" />
     <Compile Include="Common\BooleanToVisibilityConverter.cs" />
-    <Compile Include="Common\HourSelection.xaml.cs">
+    <Compile Include="HourSelection.xaml.cs">
       <DependentUpon>HourSelection.xaml</DependentUpon>
     </Compile>
     <Compile Include="Common\LayoutAwarePage.cs" />
-    <Compile Include="Common\MinuteSelection.xaml.cs">
+    <Compile Include="MinuteSelection.xaml.cs">
       <DependentUpon>MinuteSelection.xaml</DependentUpon>
     </Compile>
     <Compile Include="Common\RichTextColumns.cs" />
@@ -155,15 +155,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Common\ActivitySelection.xaml">
+    <Page Include="ActivitySelection.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Common\HourSelection.xaml">
+    <Page Include="HourSelection.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Common\MinuteSelection.xaml">
+    <Page Include="MinuteSelection.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
