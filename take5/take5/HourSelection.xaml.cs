@@ -11,6 +11,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using take5.Classes;
 
 // The Items Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234233
 
@@ -22,6 +23,9 @@ namespace take5
     /// </summary>
     public sealed partial class HourSelection : take5.Common.LayoutAwarePage
     {
+        private DatabaseConnection myDB;
+        private Middleware middleware;
+
         public HourSelection()
         {
             this.InitializeComponent();
@@ -40,8 +44,15 @@ namespace take5
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+
             var parameter = e.Parameter as string;
             this.DataContext = this;
+            myDB = new DatabaseConnection();
+            myDB.initialiseDatabase();
+            middleware = new Middleware();
+            
+
+            middleware.login();
         }
 
         protected override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)

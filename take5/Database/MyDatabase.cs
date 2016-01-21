@@ -6,68 +6,105 @@ using System.Threading.Tasks;
 
 namespace Database
 {
-    public class MyDatabase
+    public static class MyDatabase
     {
-        List<string> Activities;
-        List<Person> Users;
-        List<Match> Matches;
-        List<Match> History;
-        
+        private static List<Activity> Activities = new List<Activity>();
+        private static List<Person> Users = new List<Person>();
+        private static List<Match> Matches = new List<Match>();
+        private static List<Match> History = new List<Match>();
+        private static List<Queue> Queues = new List<Queue>();
+         
 
-        public MyDatabase()
+        public static void InitialiseDataBase()
         {
             InitialiseActivities();
             InitialiseUsers();
+            InitialiseMatches();
+            InitiliseQueues();
         }
 
-        public IEnumerable<string> GetActivities()
+        private static void InitiliseQueues()
         {
-            return Activities;
+            Queues.Add(new Queue(getQueueIndex(), Users.ElementAt(0), Activities.ElementAt(0).index));
+            Queues.Add(new Queue(getQueueIndex(), Users.ElementAt(1), Activities.ElementAt(0).index));
+            Queues.Add(new Queue(getQueueIndex(), Users.ElementAt(0), Activities.ElementAt(1).index));
+            Queues.Add(new Queue(getQueueIndex(), Users.ElementAt(1), Activities.ElementAt(1).index));
+            Queues.Add(new Queue(getQueueIndex(), Users.ElementAt(0), Activities.ElementAt(2).index));
+            Queues.Add(new Queue(getQueueIndex(), Users.ElementAt(1), Activities.ElementAt(2).index));
+            Queues.Add(new Queue(getQueueIndex(), Users.ElementAt(0), Activities.ElementAt(3).index));
+            Queues.Add(new Queue(getQueueIndex(), Users.ElementAt(1), Activities.ElementAt(3).index));
         }
 
-        protected void InitialiseActivities()
+        private static void InitialiseMatches()
         {
-            Activities = new List<string>();
-            
-            Activities.Add(string.Format("Pool"));
-            Activities.Add(string.Format("Coffee"));
-            Activities.Add(string.Format("Tenis"));
-            Activities.Add(string.Format("Walk"));
             
         }
 
-        protected void InitialiseUsers()
+
+        private static void InitialiseActivities()
+        {
+            Activities = new List<Activity>();
+            
+            Activities.Add(new Activity(getActivitiesIndex(), "Pool"));
+            Activities.Add(new Activity(getActivitiesIndex(), "Coffee"));
+            Activities.Add(new Activity(getActivitiesIndex(), "Tenis"));
+            Activities.Add(new Activity(getActivitiesIndex(), "Walk"));
+            
+        }
+
+        private static void InitialiseUsers()
         {
             Users = new List<Person>();
-            Users.Count();
-            Users.Add(new Person(getIndex(), "martin_nikolaev@dell.com"));
-            Users.Add(new Person(getIndex(), "delltest@dell.com"));
+            Users.Add(new Person(getUsersIndex(), "martin_nikolaev@dell.com"));
+            Users.Add(new Person(getUsersIndex(), "delltest@dell.com"));
         }
 
-        public void newMatch(int index, int UserID1, int UserID2, int Activity, long timeStamp)
+        public static void addUserToDatabase(Person thisPerson)
+        {
+            thisPerson.userID = getUsersIndex();
+            Users.Add(thisPerson);
+        }
+
+        public static void newMatch(int index, int UserID1, int UserID2, int Activity, long timeStamp)
         {
             Matches.Add(new Match(index, UserID1, UserID2, Activity, timeStamp));
 
         }
 
-        protected void removeMatch(int index)
+        private static void removeMatch(int index)
         {
             Matches.RemoveAt(index);
         }
 
-        protected void addToHistory(int index)
+        private static void addToHistory(int index)
         {
             History.Add(Matches.ElementAt(index));
         }
 
-        public void moveToHistory(int index)
+        public static void addUserToQueue(int test)
+        {
+            
+        }
+
+        public static void moveToHistory(int index)
         {
             addToHistory(index);
             removeMatch(index);
         }
 
-        protected int getIndex(){
+        private static int getUsersIndex()
+        {
             return Users.Count + 1;
+        }
+
+        private static int getQueueIndex()
+        {
+            return Queues.Count + 1;
+        }
+
+        private static int getActivitiesIndex()
+        {
+            return Activities.Count + 1;
         }
     }
 }

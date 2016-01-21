@@ -11,6 +11,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using take5.Classes;
 
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234237
 
@@ -21,6 +22,8 @@ namespace take5
     /// </summary>
     public sealed partial class BasicPage1 : take5.Common.LayoutAwarePage
     {
+        private Middleware middleware;
+
         public BasicPage1()
         {
             this.InitializeComponent();
@@ -47,6 +50,15 @@ namespace take5
         /// <param name="pageState">An empty dictionary to be populated with serializable state.</param>
         protected override void SaveState(Dictionary<String, Object> pageState)
         {
+        }
+
+        private void coffeeButtonClick(object sender, RoutedEventArgs e)
+        {
+            int buttonID = 2;
+
+            middleware = new Middleware();
+
+            
         }
     }
 }

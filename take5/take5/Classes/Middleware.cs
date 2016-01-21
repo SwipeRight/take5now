@@ -4,30 +4,41 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.Networking.NetworkOperators;
+using Database;
 
 namespace take5.Classes
 {
     class Middleware
     {
         private Person localUser;
+        private DatabaseConnection dbConn;
 
-        private void login()
+        public void login()
         {
-            DatabaseConnection dbConn = new DatabaseConnection();
+            dbConn = new DatabaseConnection();
             this.localUser = new Person();
+            
+
         }
 
-        private void addPersonToQueue()
+        public Person userDetails(Person localUser)
+        {
+            localUser.userEmail = "dummy@dell.com";
+
+            return localUser;
+        }
+
+        public void addPersonToQueue(Person localUser, int Activity)
+        {
+             
+        }
+
+        public void removePersonFromQueue()
         {
             
         }
 
-        private void removePersonFromQueue()
-        {
-            
-        }
-
-        private void matchPeopleFromQueue()
+        public void matchPeopleFromQueue()
         {
             
         }

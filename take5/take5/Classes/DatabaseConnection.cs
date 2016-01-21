@@ -10,9 +10,15 @@ namespace take5.Classes
 {
     class DatabaseConnection
     {
-        public DatabaseConnection()
+        
+        public void initialiseDatabase()
         {
-            MyDatabase test = new MyDatabase();
+            MyDatabase.InitialiseDataBase();
+        }
+
+        public void registerUserInDatabase(Person localUser)
+        {
+            //test.addUserToDatabase(localUser);
         }
     }
 }

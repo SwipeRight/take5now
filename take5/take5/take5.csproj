@@ -116,7 +116,6 @@
     </Compile>
     <Compile Include="Classes\DatabaseConnection.cs" />
     <Compile Include="Classes\Middleware.cs" />
-    <Compile Include="Classes\Person.cs" />
     <Compile Include="ActivitySelection.xaml.cs">
       <DependentUpon>ActivitySelection.xaml</DependentUpon>
     </Compile>
