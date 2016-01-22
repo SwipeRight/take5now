@@ -42,6 +42,11 @@ namespace take5.Classes
         {
            // dbConn.
         }
+
+        public int checkIfCanMatch(int activityID)
+        {
+            return dbConn.checkForMatch(activityID);
+        }
         
 
     }

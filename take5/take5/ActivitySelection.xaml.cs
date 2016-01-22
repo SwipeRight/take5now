@@ -44,6 +44,7 @@ namespace take5
         protected override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
         {
             middleware = new Middleware();
+            MyDatabase.InitialiseDataBase();
         }
 
         /// <summary>
@@ -89,7 +90,10 @@ namespace take5
             Person localUser = new Person();
             localUser.userID = 12312;
             localUser.userEmail = "testemail@dell.com";
-            middleware.addPersonToQueue(localUser, activityID);
+
+
+            int matched = middleware.checkIfCanMatch(activityID);
+            //middleware.addPersonToQueue(localUser, activityID);
         }
 
         

@@ -11,7 +11,7 @@ namespace take5.Classes
 {
     class DatabaseConnection
     {
-        
+
         public void initialiseDatabase()
         {
             MyDatabase.InitialiseDataBase();
@@ -24,13 +24,25 @@ namespace take5.Classes
 
         public void addUserToQueue(Person localuser, int activityID)
         {
-            checkForMatch(activityID);
-            MyDatabase.AddUserToQueue(localuser, activityID);
+            int matchedAlready = checkForMatch(activityID);
+            if (matchedAlready >= 0)
+            {
+                MyDatabase.getUserDetailsFromQueue(matchedAlready);
+            }
+            else
+            {
+                MyDatabase.AddUserToQueue(localuser, activityID);
+            }
+
         }
 
-        public void checkForMatch(int activityID)
+        public int checkForMatch(int activityID)
         {
-        
+            int matchedAlready = MyDatabase.CheckForMatch(activityID);
+
+            return MyDatabase.getUserDetailsFromQueue(matchedAlready);
+
         }
+
     }
 }

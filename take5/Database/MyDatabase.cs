@@ -28,13 +28,14 @@ namespace Database
         private static void InitiliseQueues()
         {
             Queues.Add(new Queue(getQueueIndex(), Users.ElementAt(0), Activities.ElementAt(0).index));
-            Queues.Add(new Queue(getQueueIndex(), Users.ElementAt(1), Activities.ElementAt(0).index));
-            Queues.Add(new Queue(getQueueIndex(), Users.ElementAt(0), Activities.ElementAt(1).index));
             Queues.Add(new Queue(getQueueIndex(), Users.ElementAt(1), Activities.ElementAt(1).index));
-            Queues.Add(new Queue(getQueueIndex(), Users.ElementAt(0), Activities.ElementAt(2).index));
-            Queues.Add(new Queue(getQueueIndex(), Users.ElementAt(1), Activities.ElementAt(2).index));
-            Queues.Add(new Queue(getQueueIndex(), Users.ElementAt(0), Activities.ElementAt(3).index));
-            Queues.Add(new Queue(getQueueIndex(), Users.ElementAt(1), Activities.ElementAt(3).index));
+            Queues.Add(new Queue(getQueueIndex(), Users.ElementAt(1), Activities.ElementAt(1).index));
+            Queues.Add(new Queue(getQueueIndex(), Users.ElementAt(1), Activities.ElementAt(1).index));
+            Queues.Add(new Queue(getQueueIndex(), Users.ElementAt(1), Activities.ElementAt(1).index));
+            Queues.Add(new Queue(getQueueIndex(), Users.ElementAt(1), Activities.ElementAt(1).index));
+            //Queues.Add(new Queue(getQueueIndex(), Users.ElementAt(2), Activities.ElementAt(2).index));
+ 
+
         }
 
         private static void InitialiseMatches()
@@ -73,12 +74,27 @@ namespace Database
 
         }
 
-        public static void CheckForMatch(int activityId)
+        public static int CheckForMatch(int activityId)
         {
             int match = Queues.FindIndex(queue => queue.getUserActivity() == activityId);
+            
             if (match > 0)
             {
-                
+                return match;
+            }else{
+                return -1;
+            }
+        }
+
+        public static int getUserDetailsFromQueue(int index)
+        {
+            if (index > 0)
+            {
+                return Queues.ElementAt(index).GetPerson().userID;
+            }
+            else
+            {
+                return 0;
             }
         }
 
@@ -110,7 +126,7 @@ namespace Database
 
         private static int getQueueIndex()
         {
-            return Queues.Count + 1;
+            return Queues.Count;
         }
 
         private static int getActivitiesIndex()
