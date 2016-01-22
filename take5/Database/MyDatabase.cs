@@ -67,10 +67,17 @@ namespace Database
         public static bool CheckForMatch(Person localUser, string activityId)
         {
             int match;
+            int check;
             match = Queues.FindIndex(queue => queue.getUserActivity().Equals(Activities.FindIndex(x => x.name.Equals(activityId))));
+
 
             if (match >= 0)
             {
+                if (Queues.FindIndex(queue => queue.GetPerson().userEmail.Equals(localUser.userEmail)) >= 0)
+                {
+                    return true;
+                }
+                
                 Matches.Add(new Match(localUser, Queues.ElementAt(match).GetPerson(), Activities.FindIndex(x => x.name.Equals(activityId))));
                 Queues.RemoveAt(match);
                 return true;
@@ -111,7 +118,10 @@ namespace Database
 
         public static void AddUserToQueue(Person localUser, string activityId)
         {
-            Queues.Add(new Queue(localUser, Activities.FindIndex(x => x.name.Equals(activityId))));
+            if (Queues.FindIndex(queue => queue.GetPerson().userEmail.Equals(localUser.userEmail)) < 0)
+            {
+                Queues.Add(new Queue(localUser, Activities.FindIndex(x => x.name.Equals(activityId))));
+            }
         }
     }
 }
