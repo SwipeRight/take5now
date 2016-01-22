@@ -41,7 +41,7 @@
             Grid.RowSpan="2"
             Padding="116,136,116,46"
             SelectionMode="None"
-            IsSwipeEnabled="false"/>
+            IsSwipeEnabled="false" Background="#FF004499"/>
 
         <!-- Vertical scrolling list only used when snapped -->
         <ListView
@@ -108,6 +108,13 @@
         			</Button.RenderTransform>
         		</Button>
         	</Grid>
+        	<Grid x:Name="Now" HorizontalAlignment="Left" Height="331" VerticalAlignment="Top" Width="1356" Margin="10,287,0,0">
+        		<Button Content="Break Right Now!" Click="selectRightNow" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,-1" RenderTransformOrigin="0.5,0.5" Height="50">
+        			<Button.RenderTransform>
+        				<CompositeTransform ScaleX="2" ScaleY="2"/>
+        			</Button.RenderTransform>
+        		</Button>
+        	</Grid>
         </Grid>
 
         <!-- Back button and page title -->
@@ -128,6 +135,7 @@
             		<StackPanel Grid.Column="1" HorizontalAlignment="Right" Orientation="Horizontal"/>
             	</Grid>
             </AppBar>
+            <Button Content="Cancel your break" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="1" Margin="1022,0,0,0"/>
         </Grid>
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding parameter}"  VerticalAlignment="Top" Margin="610,461,0,0" Grid.Row="1" FontSize="48"/>
 

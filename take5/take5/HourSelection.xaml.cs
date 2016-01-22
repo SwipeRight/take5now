@@ -21,14 +21,14 @@ namespace take5
     /// A page that displays a collection of item previews.  In the Split Application this page
     /// is used to display and select one of the available groups.
     /// </summary>
-	
-	public class Payload
-	{
-		public int hour {get;set;}
-		public int minute {get;set;}
-		public string activity {get;set;}
-	}
-	
+
+    public class Payload
+    {
+        public int hour { get; set; }
+        public int minute { get; set; }
+        public string activity { get; set; }
+    }
+
     public sealed partial class HourSelection : take5.Common.LayoutAwarePage
     {
         private DatabaseConnection myDB;
@@ -120,6 +120,32 @@ namespace take5
 		{
             payload.hour = 5;
 			this.Frame.Navigate(typeof(MinuteSelection), payload);
+		}
+		
+		private void selectRightNow(object sender, RoutedEventArgs e)
+		{
+			DateTime rightNow = DateTime.Now;
+			int hour = rightNow.Hour;
+			int minute = rightNow.Minute;
+            if(minute > 0 & minute < 16)
+            {
+                minute = 15;
+            }
+            if (minute > 15 & minute < 31)
+            {
+                minute = 30;
+            }
+            if (minute > 30 & minute < 46)
+            {
+                minute = 45;
+            }
+            if (minute > 45 & minute < 1)
+            {
+                minute = 00;
+            }
+			payload.hour = hour;
+			payload.minute = minute;
+			this.Frame.Navigate(typeof(ActivitySelection), payload);
 		}
 
         protected override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)

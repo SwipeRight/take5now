@@ -13,7 +13,7 @@
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <PackageCertificateKeyFile>take5_TemporaryKey.pfx</PackageCertificateKeyFile>
-    <ExpressionBlendVersion>5.0.40218.0</ExpressionBlendVersion>
+    <ExpressionBlendVersion>12.0.41002.1</ExpressionBlendVersion>
     <TargetPlatformVersion>8.1</TargetPlatformVersion>
     <MinimumVisualStudioVersion>12</MinimumVisualStudioVersion>
     <TargetFrameworkVersion />
@@ -114,6 +114,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CancelBreak.xaml.cs">
+      <DependentUpon>CancelBreak.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Classes\DatabaseConnection.cs" />
     <Compile Include="Classes\Middleware.cs" />
     <Compile Include="ActivitySelection.xaml.cs">
@@ -122,6 +125,9 @@
     <Compile Include="Common\BindableBase.cs" />
     <Compile Include="Common\BooleanNegationConverter.cs" />
     <Compile Include="Common\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Common\NavigationHelper.cs" />
+    <Compile Include="Common\ObservableDictionary.cs" />
+    <Compile Include="Common\RelayCommand.cs" />
     <Compile Include="HourSelection.xaml.cs">
       <DependentUpon>HourSelection.xaml</DependentUpon>
     </Compile>
@@ -152,6 +158,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="ActivitySelection.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CancelBreak.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
