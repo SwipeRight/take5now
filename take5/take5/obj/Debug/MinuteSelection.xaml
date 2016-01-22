@@ -36,7 +36,7 @@
             <Button x:ConnectionId='5' x:Name="backButton"                IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
             <TextBlock x:Name="pageTitle" Grid.Column="1" Text="Take5" Style="{StaticResource PageHeaderTextStyle}"/>
         </Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="900,50,0,0" TextWrapping="Wrap" Text="11:" VerticalAlignment="Top" FontSize="160" FontFamily="Segoe UI" Opacity="0.5" Grid.RowSpan="2"/>
+        <TextBlock x:Name="time" HorizontalAlignment="Left" Margin="900,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="160" FontFamily="Segoe UI" Opacity="0.5" Grid.RowSpan="2"/>
         <Grid x:Name="Main" HorizontalAlignment="Left" Height="628" VerticalAlignment="Top" Width="1366" Grid.Row="1">
         	<TextBlock x:Name="Instructions" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="81,62,0,0" FontSize="32" Text="Now, refine your break time into a 15 minute segment."/>
         	<Grid x:Name="Minutes" VerticalAlignment="Center" Margin="83,111,83,204" HorizontalAlignment="Center">

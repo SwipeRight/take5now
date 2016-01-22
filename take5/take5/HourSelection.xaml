@@ -59,9 +59,7 @@
             IsSwipeEnabled="false"/>
         <Grid x:Name="Main" HorizontalAlignment="Left" Height="628" VerticalAlignment="Top" Width="1366" Grid.Row="1">
         	<TextBlock x:Name="Instructions" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="81,62,0,0" FontSize="32">
-        		<Run Text="Welcome to Take5, please select the"/>
-        		<Run Text=" "/>
-        		<Run Text="hour of your break."/>
+        		<Run Text="Welcome to Take5, please select the hour of your break."/>
         	</TextBlock>
         	<Grid x:Name="Hours" VerticalAlignment="Center" Margin="83,111,83,204" HorizontalAlignment="Center">
         		<Button x:Name="_9am" Click="select9am" Content="9am" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="33,0,0,0" RenderTransformOrigin="0.5,0.5" Width="70">

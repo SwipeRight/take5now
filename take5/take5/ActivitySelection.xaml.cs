@@ -40,6 +40,7 @@ namespace take5
             Payload passedPayload = e.Parameter as Payload;
             finalPayload.hour = passedPayload.hour;
             finalPayload.minute = passedPayload.minute;
+            time.Text = finalPayload.hour.ToString() + ":" + finalPayload.minute;
         }
 
         private void selectPool(object sender, RoutedEventArgs e)

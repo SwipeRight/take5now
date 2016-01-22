@@ -62,9 +62,7 @@
         		</Button>
         	</Grid>
         </Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="900,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="160" FontFamily="Segoe UI" Opacity="0.5" Grid.RowSpan="2">
-        	<Run Text="11:"/>
-        	<Run Text="15"/>
+        <TextBlock x:Name="time" HorizontalAlignment="Left" Margin="900,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="" FontSize="160" FontFamily="Segoe UI" Opacity="0.5" Grid.RowSpan="2">
         </TextBlock>
 
         <VisualStateManager.VisualStateGroups>

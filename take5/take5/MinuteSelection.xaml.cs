@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using Windows.Foundation;
@@ -34,6 +35,7 @@ namespace take5
             base.OnNavigatedTo(e);
             Payload passedPayload = e.Parameter as Payload;
             importedPayload.hour = passedPayload.hour;
+            time.Text = importedPayload.hour.ToString() + ":";
         }
 
         private void select00mins(object sender, RoutedEventArgs e)
