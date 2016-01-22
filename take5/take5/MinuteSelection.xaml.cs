@@ -19,12 +19,20 @@ namespace take5
     /// <summary>
     /// A basic page that provides characteristics common to most applications.
     /// </summary>
+	
     public sealed partial class MinuteSelection : take5.Common.LayoutAwarePage
     {
         public MinuteSelection()
         {
             this.InitializeComponent();
         }
+		
+		Payload importedPayload = new Payload();
+		
+		protected void OnNavigatedTo(NavigationEventArgs e, Payload test)
+		{
+			importedPayload.hour = test.hour;
+		}
 
        /// <summary>
         /// Populates the page with content passed during navigation.  Any saved state is also

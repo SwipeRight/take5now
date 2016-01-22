@@ -21,6 +21,14 @@ namespace take5
     /// A page that displays a collection of item previews.  In the Split Application this page
     /// is used to display and select one of the available groups.
     /// </summary>
+	
+	public class Payload
+	{
+		public int hour {get;set;}
+		public int minute {get;set;}
+		public string activity {get;set;}
+	}
+	
     public sealed partial class HourSelection : take5.Common.LayoutAwarePage
     {
         private DatabaseConnection myDB;
@@ -30,6 +38,10 @@ namespace take5
         {
             this.InitializeComponent();
         }
+		
+		int i = 12;
+		
+		Payload payload = new Payload();
 
         /// <summary>
         /// Populates the page with content passed during navigation.  Any saved state is also
@@ -54,6 +66,65 @@ namespace take5
 
             middleware.login();
         }
+		
+		private void select9am(object sender, RoutedEventArgs e)
+		{
+			payload.hour = 9;
+			this.Frame.Navigate(typeof(HourSelection), payload);
+		}
+		
+		private void select10am(object sender, RoutedEventArgs e)
+		{
+            payload.hour = 10;
+			this.Frame.Navigate(typeof(HourSelection), payload);
+		}
+		
+		private void select11am(object sender, RoutedEventArgs e)
+		{
+            payload.hour = 11;
+			this.Frame.Navigate(typeof(MinuteSelection), payload);
+		}
+		
+		private void select12pm(object sender, RoutedEventArgs e)
+		{
+            payload.hour = 12;
+			this.Frame.Navigate(typeof(MinuteSelection), payload);
+		}
+		
+		private void select1pm(object sender, RoutedEventArgs e)
+		{
+            payload.hour = 1;
+			this.Frame.Navigate(typeof(MinuteSelection), payload);
+		}
+		
+		private void select2pm(object sender, RoutedEventArgs e)
+		{
+            payload.hour = 2;
+			this.Frame.Navigate(typeof(MinuteSelection), payload);
+		}
+		
+		private void select3pm(object sender, RoutedEventArgs e)
+		{
+            payload.hour = 3;
+			this.Frame.Navigate(typeof(MinuteSelection), payload);
+		}
+		
+		private void select4pm(object sender, RoutedEventArgs e)
+		{
+            payload.hour = 4;
+			this.Frame.Navigate(typeof(MinuteSelection), payload);
+		}
+		
+		private void select5pm(object sender, RoutedEventArgs e)
+		{
+            payload.hour = 5;
+			this.Frame.Navigate(typeof(MinuteSelection), payload);
+		}
+		
+		private void testthisout(object sender, RoutedEventArgs e)
+		{
+			this.Frame.Navigate(typeof(MinuteSelection), i);
+		}
 
         protected override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
         {

@@ -64,52 +64,53 @@
         		<Run Text="hour of your break."/>
         	</TextBlock>
         	<Grid x:Name="Hours" VerticalAlignment="Center" Margin="83,111,83,204" HorizontalAlignment="Center">
-        		<Button x:Name="_9am" Content="9am" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="33,0,0,0" RenderTransformOrigin="0.5,0.5" Width="70">
+        		<Button x:Name="_9am" Click="select9am" Content="9am" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="33,0,0,0" RenderTransformOrigin="0.5,0.5" Width="70">
         			<Button.RenderTransform>
         				<CompositeTransform ScaleY="1.5" ScaleX="1.5"/>
         			</Button.RenderTransform>
         		</Button>
-        		<Button x:Name="_10am" Content="10am" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="166,0,0,0" RenderTransformOrigin="0.5,0.5" Width="70">
+        		<Button x:Name="_10am" Click="select10am" Content="10am" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="166,0,0,0" RenderTransformOrigin="0.5,0.5" Width="70">
         			<Button.RenderTransform>
         				<CompositeTransform ScaleX="1.5" ScaleY="1.5"/>
         			</Button.RenderTransform>
         		</Button>
-        		<Button x:Name="_11am" Content="11am" HorizontalAlignment="Left" VerticalAlignment="Center" Width="70" RenderTransformOrigin="0.5,0.5" Margin="299,0,0,0">
+        		<Button x:Name="_11am" Click="select11am" Content="11am" HorizontalAlignment="Left" VerticalAlignment="Center" Width="70" RenderTransformOrigin="0.5,0.5" Margin="299,0,0,0">
         			<Button.RenderTransform>
         				<CompositeTransform ScaleX="1.5" ScaleY="1.5"/>
         			</Button.RenderTransform>
         		</Button>
-        		<Button x:Name="_12pm" Content="12pm" HorizontalAlignment="Left" VerticalAlignment="Center" Width="70" RenderTransformOrigin="0.5,0.5" Margin="432,0,0,0">
+        		<Button x:Name="_12pm" Click="select12pm" Content="12pm" HorizontalAlignment="Left" VerticalAlignment="Center" Width="70" RenderTransformOrigin="0.5,0.5" Margin="432,0,0,0">
         			<Button.RenderTransform>
         				<CompositeTransform ScaleX="1.5" ScaleY="1.5"/>
         			</Button.RenderTransform>
         		</Button>
-        		<Button x:Name="_1pm" Content="1pm" HorizontalAlignment="Left" VerticalAlignment="Center" Width="70" RenderTransformOrigin="0.5,0.5" Margin="565,0,0,0">
+        		<Button x:Name="_1pm" Click="select1pm" Content="1pm" HorizontalAlignment="Left" VerticalAlignment="Center" Width="70" RenderTransformOrigin="0.5,0.5" Margin="565,0,0,0">
         			<Button.RenderTransform>
         				<CompositeTransform ScaleX="1.5" ScaleY="1.5"/>
         			</Button.RenderTransform>
         		</Button>
-        		<Button x:Name="_2pm" Content="2pm" HorizontalAlignment="Left" VerticalAlignment="Center" Width="70" RenderTransformOrigin="0.5,0.5" Margin="698,0,0,0">
+        		<Button x:Name="_2pm" Click="select2pm" Content="2pm" HorizontalAlignment="Left" VerticalAlignment="Center" Width="70" RenderTransformOrigin="0.5,0.5" Margin="698,0,0,0">
         			<Button.RenderTransform>
         				<CompositeTransform ScaleX="1.5" ScaleY="1.5"/>
         			</Button.RenderTransform>
         		</Button>
-        		<Button x:Name="_3pm" Content="3pm" HorizontalAlignment="Left" VerticalAlignment="Center" Width="70" RenderTransformOrigin="0.5,0.5" Margin="831,0,0,0">
+        		<Button x:Name="_3pm" Click="select3pm" Content="3pm" HorizontalAlignment="Left" VerticalAlignment="Center" Width="70" RenderTransformOrigin="0.5,0.5" Margin="831,0,0,0">
         			<Button.RenderTransform>
         				<CompositeTransform ScaleX="1.5" ScaleY="1.5"/>
         			</Button.RenderTransform>
         		</Button>
-        		<Button x:Name="_4pm" Content="4pm" HorizontalAlignment="Left" VerticalAlignment="Center" Width="70" RenderTransformOrigin="0.5,0.5" Margin="965,0,0,0">
+        		<Button x:Name="_4pm" Click="select4pm" Content="4pm" HorizontalAlignment="Left" VerticalAlignment="Center" Width="70" RenderTransformOrigin="0.5,0.5" Margin="965,0,0,0">
         			<Button.RenderTransform>
         				<CompositeTransform ScaleX="1.5" ScaleY="1.5"/>
         			</Button.RenderTransform>
         		</Button>
-        		<Button x:Name="_5pm" Content="5pm" HorizontalAlignment="Left" VerticalAlignment="Center" Width="70" RenderTransformOrigin="0.5,0.5" Margin="1097,0,33,0">
+        		<Button x:Name="_5pm" Click="select5pm" Content="5pm" HorizontalAlignment="Left" VerticalAlignment="Center" Width="70" RenderTransformOrigin="0.5,0.5" Margin="1097,0,33,0">
         			<Button.RenderTransform>
         				<CompositeTransform ScaleX="1.5" ScaleY="1.5"/>
         			</Button.RenderTransform>
         		</Button>
         	</Grid>
+        	<Button Content="Button" Click="testthisout" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="638,366,0,0"/>
         </Grid>
 
         <!-- Back button and page title -->
