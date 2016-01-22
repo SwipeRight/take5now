@@ -36,31 +36,32 @@
             </Grid.ColumnDefinitions>
             <Button x:Name="backButton" Click="GoBack" IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
             <TextBlock x:Name="pageTitle" Grid.Column="1" Text="Take5" Style="{StaticResource PageHeaderTextStyle}"/>
+            <TextBlock x:Name="loginDetails" Grid.Column="1" HorizontalAlignment="Left" Margin="796,0,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="43" Width="450" FontSize="20"/>
         </Grid>
         <Grid x:Name="Main" HorizontalAlignment="Left" Height="628" VerticalAlignment="Top" Width="1366" Grid.Row="1">
-        	<TextBlock x:Name="Instructions" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="81,62,0,0" FontSize="32" Text="What would you like to do during your break?"/>
-        	<Grid x:Name="Activities" VerticalAlignment="Center" Margin="83,111,83,204" HorizontalAlignment="Center">
-        		<Button x:Name="Pool" Click="selectPool" Content="Pool" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="33,0,0,0" RenderTransformOrigin="0.75,0.75" Width="145" Height="60" FontSize="18.667">
-        			<Button.RenderTransform>
-        				<CompositeTransform ScaleY="1.5" ScaleX="1.5" TranslateX="8.75" TranslateY="4.75"/>
-        			</Button.RenderTransform>
-        		</Button>
-        		<Button x:Name="Coffee" Click="selectCoffee" Content="Coffee" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="283,0,0,0" RenderTransformOrigin="0.5,0.5" Width="145" Height="60" FontSize="18.667">
-        			<Button.RenderTransform>
-        				<CompositeTransform ScaleX="1.5" ScaleY="1.5"/>
-        			</Button.RenderTransform>
-        		</Button>
-        		<Button x:Name="Table_Tennis" Click="selectTable_Tennis" Content="Table Tennis" HorizontalAlignment="Left" VerticalAlignment="Center" Width="145" RenderTransformOrigin="0.5,0.5" Margin="533,0,0,0" Height="60" FontSize="18.667">
-        			<Button.RenderTransform>
-        				<CompositeTransform ScaleX="1.5" ScaleY="1.5"/>
-        			</Button.RenderTransform>
-        		</Button>
-        		<Button x:Name="Walk" Content="Walk" Click="selectWalk" HorizontalAlignment="Left" VerticalAlignment="Center" Width="145" RenderTransformOrigin="0.5,0.5" Margin="783,0,0,0" Height="60" FontSize="18.667">
-        			<Button.RenderTransform>
-        				<CompositeTransform ScaleX="1.5" ScaleY="1.5"/>
-        			</Button.RenderTransform>
-        		</Button>
-        	</Grid>
+            <TextBlock x:Name="Instructions" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="81,62,0,0" FontSize="32" Text="What would you like to do during your break?"/>
+            <Grid x:Name="Activities" VerticalAlignment="Center" Margin="83,111,83,204" HorizontalAlignment="Center">
+                <Button x:Name="Pool" Click="selectPool" Content="Pool" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="33,0,0,0" RenderTransformOrigin="0.75,0.75" Width="145" Height="60" FontSize="18.667">
+                    <Button.RenderTransform>
+                        <CompositeTransform ScaleY="1.5" ScaleX="1.5" TranslateX="8.75" TranslateY="4.75"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="Coffee" Click="selectCoffee" Content="Coffee" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="283,0,0,0" RenderTransformOrigin="0.5,0.5" Width="145" Height="60" FontSize="18.667">
+                    <Button.RenderTransform>
+                        <CompositeTransform ScaleX="1.5" ScaleY="1.5"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="Table_Tennis" Click="selectTable_Tennis" Content="Table Tennis" HorizontalAlignment="Left" VerticalAlignment="Center" Width="145" RenderTransformOrigin="0.5,0.5" Margin="533,0,0,0" Height="60" FontSize="18.667">
+                    <Button.RenderTransform>
+                        <CompositeTransform ScaleX="1.5" ScaleY="1.5"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="Walk" Content="Walk" Click="selectWalk" HorizontalAlignment="Left" VerticalAlignment="Center" Width="145" RenderTransformOrigin="0.5,0.5" Margin="783,0,0,0" Height="60" FontSize="18.667">
+                    <Button.RenderTransform>
+                        <CompositeTransform ScaleX="1.5" ScaleY="1.5"/>
+                    </Button.RenderTransform>
+                </Button>
+            </Grid>
         </Grid>
         <TextBlock x:Name="time" HorizontalAlignment="Left" Margin="900,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="" FontSize="160" FontFamily="Segoe UI" Opacity="0.5" Grid.RowSpan="2">
         </TextBlock>

@@ -58,56 +58,56 @@
             SelectionMode="None"
             IsSwipeEnabled="false"/>
         <Grid x:Name="Main" HorizontalAlignment="Left" Height="628" VerticalAlignment="Top" Width="1366" Grid.Row="1">
-        	<TextBlock x:Name="Instructions" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="81,62,0,0" FontSize="32">
+            <TextBlock x:Name="Instructions" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="81,62,0,0" FontSize="32">
         		<Run Text="Welcome to Take5, please select the hour of your break."/>
-        	</TextBlock>
-        	<Grid x:Name="Hours" VerticalAlignment="Center" Margin="83,111,83,204" HorizontalAlignment="Center">
-        		<Button x:Name="_9am" Click="select9am" Content="9am" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="33,0,0,0" RenderTransformOrigin="0.5,0.5" Width="70">
-        			<Button.RenderTransform>
-        				<CompositeTransform ScaleY="1.5" ScaleX="1.5"/>
-        			</Button.RenderTransform>
-        		</Button>
-        		<Button x:Name="_10am" Click="select10am" Content="10am" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="166,0,0,0" RenderTransformOrigin="0.5,0.5" Width="70">
-        			<Button.RenderTransform>
-        				<CompositeTransform ScaleX="1.5" ScaleY="1.5"/>
-        			</Button.RenderTransform>
-        		</Button>
-        		<Button x:Name="_11am" Click="select11am" Content="11am" HorizontalAlignment="Left" VerticalAlignment="Center" Width="70" RenderTransformOrigin="0.5,0.5" Margin="299,0,0,0">
-        			<Button.RenderTransform>
-        				<CompositeTransform ScaleX="1.5" ScaleY="1.5"/>
-        			</Button.RenderTransform>
-        		</Button>
-        		<Button x:Name="_12pm" Click="select12pm" Content="12pm" HorizontalAlignment="Left" VerticalAlignment="Center" Width="70" RenderTransformOrigin="0.5,0.5" Margin="432,0,0,0">
-        			<Button.RenderTransform>
-        				<CompositeTransform ScaleX="1.5" ScaleY="1.5"/>
-        			</Button.RenderTransform>
-        		</Button>
-        		<Button x:Name="_1pm" Click="select1pm" Content="1pm" HorizontalAlignment="Left" VerticalAlignment="Center" Width="70" RenderTransformOrigin="0.5,0.5" Margin="565,0,0,0">
-        			<Button.RenderTransform>
-        				<CompositeTransform ScaleX="1.5" ScaleY="1.5"/>
-        			</Button.RenderTransform>
-        		</Button>
-        		<Button x:Name="_2pm" Click="select2pm" Content="2pm" HorizontalAlignment="Left" VerticalAlignment="Center" Width="70" RenderTransformOrigin="0.5,0.5" Margin="698,0,0,0">
-        			<Button.RenderTransform>
-        				<CompositeTransform ScaleX="1.5" ScaleY="1.5"/>
-        			</Button.RenderTransform>
-        		</Button>
-        		<Button x:Name="_3pm" Click="select3pm" Content="3pm" HorizontalAlignment="Left" VerticalAlignment="Center" Width="70" RenderTransformOrigin="0.5,0.5" Margin="831,0,0,0">
-        			<Button.RenderTransform>
-        				<CompositeTransform ScaleX="1.5" ScaleY="1.5"/>
-        			</Button.RenderTransform>
-        		</Button>
-        		<Button x:Name="_4pm" Click="select4pm" Content="4pm" HorizontalAlignment="Left" VerticalAlignment="Center" Width="70" RenderTransformOrigin="0.5,0.5" Margin="965,0,0,0">
-        			<Button.RenderTransform>
-        				<CompositeTransform ScaleX="1.5" ScaleY="1.5"/>
-        			</Button.RenderTransform>
-        		</Button>
-        		<Button x:Name="_5pm" Click="select5pm" Content="5pm" HorizontalAlignment="Left" VerticalAlignment="Center" Width="70" RenderTransformOrigin="0.5,0.5" Margin="1097,0,33,0">
-        			<Button.RenderTransform>
-        				<CompositeTransform ScaleX="1.5" ScaleY="1.5"/>
-        			</Button.RenderTransform>
-        		</Button>
-        	</Grid>
+            </TextBlock>
+            <Grid x:Name="Hours" VerticalAlignment="Center" Margin="83,111,83,204" HorizontalAlignment="Center">
+                <Button x:Name="_9am" Click="select9am" Content="9am" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="33,0,0,0" RenderTransformOrigin="0.5,0.5" Width="70">
+                    <Button.RenderTransform>
+                        <CompositeTransform ScaleY="1.5" ScaleX="1.5"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="_10am" Click="select10am" Content="10am" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="166,0,0,0" RenderTransformOrigin="0.5,0.5" Width="70">
+                    <Button.RenderTransform>
+                        <CompositeTransform ScaleX="1.5" ScaleY="1.5"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="_11am" Click="select11am" Content="11am" HorizontalAlignment="Left" VerticalAlignment="Center" Width="70" RenderTransformOrigin="0.5,0.5" Margin="299,0,0,0">
+                    <Button.RenderTransform>
+                        <CompositeTransform ScaleX="1.5" ScaleY="1.5"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="_12pm" Click="select12pm" Content="12pm" HorizontalAlignment="Left" VerticalAlignment="Center" Width="70" RenderTransformOrigin="0.5,0.5" Margin="432,0,0,0">
+                    <Button.RenderTransform>
+                        <CompositeTransform ScaleX="1.5" ScaleY="1.5"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="_1pm" Click="select1pm" Content="1pm" HorizontalAlignment="Left" VerticalAlignment="Center" Width="70" RenderTransformOrigin="0.5,0.5" Margin="565,0,0,0">
+                    <Button.RenderTransform>
+                        <CompositeTransform ScaleX="1.5" ScaleY="1.5"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="_2pm" Click="select2pm" Content="2pm" HorizontalAlignment="Left" VerticalAlignment="Center" Width="70" RenderTransformOrigin="0.5,0.5" Margin="698,0,0,0">
+                    <Button.RenderTransform>
+                        <CompositeTransform ScaleX="1.5" ScaleY="1.5"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="_3pm" Click="select3pm" Content="3pm" HorizontalAlignment="Left" VerticalAlignment="Center" Width="70" RenderTransformOrigin="0.5,0.5" Margin="831,0,0,0">
+                    <Button.RenderTransform>
+                        <CompositeTransform ScaleX="1.5" ScaleY="1.5"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="_4pm" Click="select4pm" Content="4pm" HorizontalAlignment="Left" VerticalAlignment="Center" Width="70" RenderTransformOrigin="0.5,0.5" Margin="965,0,0,0">
+                    <Button.RenderTransform>
+                        <CompositeTransform ScaleX="1.5" ScaleY="1.5"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="_5pm" Click="select5pm" Content="5pm" HorizontalAlignment="Left" VerticalAlignment="Center" Width="70" RenderTransformOrigin="0.5,0.5" Margin="1097,0,33,0">
+                    <Button.RenderTransform>
+                        <CompositeTransform ScaleX="1.5" ScaleY="1.5"/>
+                    </Button.RenderTransform>
+                </Button>
+            </Grid>
         </Grid>
 
         <!-- Back button and page title -->
@@ -119,15 +119,18 @@
             <Button x:Name="backButton" Click="GoBack" IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
             <TextBlock x:Name="pageTitle" Grid.Column="1" Text="Take5" IsHitTestVisible="false" Style="{StaticResource PageHeaderTextStyle}"/>
             <AppBar>
-            	<Grid>
-            		<Grid.ColumnDefinitions>
-            			<ColumnDefinition/>
-            			<ColumnDefinition/>
-            		</Grid.ColumnDefinitions>
-            		<StackPanel Orientation="Horizontal"/>
-            		<StackPanel Grid.Column="1" HorizontalAlignment="Right" Orientation="Horizontal"/>
-            	</Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Orientation="Horizontal"/>
+                    <StackPanel Grid.Column="1" HorizontalAlignment="Right" Orientation="Horizontal"/>
+                </Grid>
             </AppBar>
+            <TextBlock x:Name="loginDetails" TextWrapping="Wrap" RenderTransformOrigin="1.042,2.799" SelectionChanged="TextBlock_SelectionChanged" Margin="918,4,10,104" Grid.Column="1" FontSize="20">
+            	
+            </TextBlock>
         </Grid>
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding parameter}"  VerticalAlignment="Top" Margin="610,461,0,0" Grid.Row="1" FontSize="48"/>
 

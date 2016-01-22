@@ -35,6 +35,7 @@
             </Grid.ColumnDefinitions>
             <Button x:Name="backButton" Click="GoBack" IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
             <TextBlock x:Name="pageTitle" Grid.Column="1" Text="Take5" Style="{StaticResource PageHeaderTextStyle}"/>
+            <TextBlock x:Name="loginDetails" Grid.Column="1" HorizontalAlignment="Left" Margin="833,3,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="40" Width="403" FontSize="20"/>
         </Grid>
         <TextBlock x:Name="time" HorizontalAlignment="Left" Margin="900,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="160" FontFamily="Segoe UI" Opacity="0.5" Grid.RowSpan="2"/>
         <Grid x:Name="Main" HorizontalAlignment="Left" Height="628" VerticalAlignment="Top" Width="1366" Grid.Row="1">
