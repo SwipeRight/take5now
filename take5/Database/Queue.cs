@@ -9,13 +9,11 @@ namespace Database
     class Queue
     {
 
-        private int Index { get; set; }
         private Person User { get; set; }
         private int Activity { get; set; }
 
-        public Queue(int index, Person user, int activity)
+        public Queue(Person user, int activity)
         {
-            this.Index = index;
             this.User = user;
             this.Activity = activity;
         }

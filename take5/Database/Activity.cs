@@ -8,12 +8,10 @@ namespace Database
 {
     class Activity
     {
-        public int index { get; set; }
         public string name { get; set; }
 
-        public Activity(int index, string name)
+        public Activity(string name)
         {
-            this.index = index;
             this.name = name;
         }
     }

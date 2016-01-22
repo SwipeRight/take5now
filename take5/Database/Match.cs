@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace Database
 {
-    class Match
+    public class Match
     {
-        private int index { get; set; }
-        private int userID1 { get; set; }
-        private int userID2 { get; set; }
+        private Person User1 { get; set; }
+        private Person User2 { get; set; }
         //1 - Pool
         //2 - Coffee
         //3 - Tenis
@@ -18,14 +17,21 @@ namespace Database
         private int activity { get; set; }
         private long timestamp { get; set; }
 
-        public Match(int index, int UserID1, int UserID2, int Activity, long timeStamp)
+        public Match(Person UserID1, Person UserID2, int Activity)
         {
-            this.index = index;
-            this.userID1 = UserID1;
-            this.userID2 = UserID2;
+            this.User1 = UserID1;
+            this.User2 = UserID2;
             this.activity = Activity;
-            this.timestamp = timeStamp;
         }
 
+        public Person getUser1Details()
+        {
+            return User1;
+        }
+
+        public Person getUser2Details()
+        {
+            return User2;
+        }
     }
 }

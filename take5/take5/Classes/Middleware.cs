@@ -18,7 +18,6 @@ namespace take5.Classes
             dbConn = new DatabaseConnection();
             this.localUser = new Person();
             
-
         }
 
         public Person userDetails(Person localUser)
@@ -28,24 +27,26 @@ namespace take5.Classes
             return localUser;
         }
 
-        public void addPersonToQueue(Person localUser, int activityID)
+        public void addPersonToQueue(Person localUser, string activityID)
         {
             dbConn.addUserToQueue(localUser, activityID);
         }
 
-        public void removePersonFromQueue()
+        public void removePersonFromQueue(Person Person)
         {
-            
+            MyDatabase.RemoveUserFromQueue(Person);
         }
 
-        public void matchPeopleFromQueue(int activityID)
+      
+
+        public bool checkIfCanMatch(Person localUser, string activityID)
         {
-           // dbConn.
+            return dbConn.checkIfCanMatch(localUser, activityID);
         }
 
-        public int checkIfCanMatch(int activityID)
+        public Person getUserDetailsFromMatchingQueue(int index)
         {
-            return dbConn.checkForMatch(activityID);
+            return dbConn.getUserDetailsFromMatchingQueue(index);
         }
         
 

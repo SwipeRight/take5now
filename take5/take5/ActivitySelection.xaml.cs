@@ -94,40 +94,42 @@ namespace take5
 
         private void poolButtonClick(object sender, RoutedEventArgs e)
         {
-            int buttonID = 1;
+            var buttonID = "Pool";
             addUserToQueue(buttonID);
         }
 
         private void coffeeButtonClick(object sender, RoutedEventArgs e)
         {
-            int buttonID = 2;
+            var buttonID = "Coffee";
             addUserToQueue(buttonID);
             
         }
 
         private void tenisButtonClick(object sender, RoutedEventArgs e)
         {
-            int buttonID = 3;
+            var buttonID = "Tenis";
             addUserToQueue(buttonID);
 
         }
 
         private void walkButtonClick(object sender, RoutedEventArgs e)
         {
-            int buttonID = 4;
+            var buttonID = "Walk";
             addUserToQueue(buttonID);
 
         }
 
-        private void addUserToQueue(int activityID)
+        private void addUserToQueue(string activityID)
         {
-            Person localUser = new Person();
-            localUser.userID = 12312;
+            Person localUser = new Person {userID = 3};
             localUser.userEmail = "testemail@dell.com";
 
 
-            int matched = middleware.checkIfCanMatch(activityID);
-            //middleware.addPersonToQueue(localUser, activityID);
+            var matched = middleware.checkIfCanMatch(localUser, activityID);
+            if (!matched)
+            {
+                middleware.addPersonToQueue(localUser, activityID);
+            }
         }
 
         
