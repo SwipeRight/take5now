@@ -32,6 +32,32 @@ namespace take5
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
+            Payload passedPayload = e.Parameter as Payload;
+            importedPayload.hour = passedPayload.hour;
+        }
+
+        private void select00mins(object sender, RoutedEventArgs e)
+        {
+            importedPayload.minute = 00;
+            this.Frame.Navigate(typeof(ActivitySelection), importedPayload);
+        }
+
+        private void select15mins(object sender, RoutedEventArgs e)
+        {
+            importedPayload.minute = 15;
+            this.Frame.Navigate(typeof(ActivitySelection), importedPayload);
+        }
+
+        private void select30mins(object sender, RoutedEventArgs e)
+        {
+            importedPayload.minute = 30;
+            this.Frame.Navigate(typeof(ActivitySelection), importedPayload);
+        }
+
+        private void select45mins(object sender, RoutedEventArgs e)
+        {
+            importedPayload.minute = 45;
+            this.Frame.Navigate(typeof(ActivitySelection), importedPayload);
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
@@ -60,6 +86,11 @@ namespace take5
         /// <param name="pageState">An empty dictionary to be populated with serializable state.</param>
         protected override void SaveState(Dictionary<String, Object> pageState)
         {
+        }
+
+        private void _00_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

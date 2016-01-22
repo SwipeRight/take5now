@@ -22,14 +22,47 @@ namespace take5
     /// <summary>
     /// A basic page that provides characteristics common to most applications.
     /// </summary>
-    public sealed partial class BasicPage1 : take5.Common.LayoutAwarePage
+    public sealed partial class ActivitySelection : take5.Common.LayoutAwarePage
     {
         private Middleware middleware;
 
 
-        public BasicPage1()
+        public ActivitySelection()
         {
             this.InitializeComponent();
+        }
+
+        Payload finalPayload = new Payload();
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            Payload passedPayload = e.Parameter as Payload;
+            finalPayload.hour = passedPayload.hour;
+            finalPayload.minute = passedPayload.minute;
+        }
+
+        private void selectPool(object sender, RoutedEventArgs e)
+        {
+            finalPayload.activity = "Pool";
+            this.Frame.Navigate(typeof(ActivitySelection), finalPayload);
+        }
+        private void selectCoffee(object sender, RoutedEventArgs e)
+        {
+            finalPayload.activity = "Coffee";
+            this.Frame.Navigate(typeof(ActivitySelection), finalPayload);
+        }
+
+        private void selectTable_Tennis(object sender, RoutedEventArgs e)
+        {
+            finalPayload.activity = "Table Tennis";
+            this.Frame.Navigate(typeof(ActivitySelection), finalPayload);
+        }
+
+        private void selectWalk(object sender, RoutedEventArgs e)
+        {
+            finalPayload.activity = "Walk";
+            this.Frame.Navigate(typeof(ActivitySelection), finalPayload);
         }
 
        /// <summary>

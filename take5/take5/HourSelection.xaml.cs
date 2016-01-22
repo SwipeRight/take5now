@@ -44,8 +44,6 @@ namespace take5
             base.OnNavigatedFrom(e);
         }
 		
-		int i = 12;
-		
 		Payload payload = new Payload();
 
         /// <summary>
@@ -122,11 +120,6 @@ namespace take5
 		{
             payload.hour = 5;
 			this.Frame.Navigate(typeof(MinuteSelection), payload);
-		}
-		
-		private void testthisout(object sender, RoutedEventArgs e)
-		{
-			this.Frame.Navigate(typeof(MinuteSelection), i);
 		}
 
         protected override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)

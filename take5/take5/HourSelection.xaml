@@ -110,7 +110,6 @@
         			</Button.RenderTransform>
         		</Button>
         	</Grid>
-        	<Button Content="Button" Click="testthisout" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="638,366,0,0"/>
         </Grid>
 
         <!-- Back button and page title -->

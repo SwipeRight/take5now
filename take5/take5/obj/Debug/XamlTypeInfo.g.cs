@@ -128,7 +128,7 @@ namespace take5.take5_XamlTypeInfo
             _typeNameTable[0] = "take5.Common.LayoutAwarePage";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
-            _typeNameTable[3] = "take5.BasicPage1";
+            _typeNameTable[3] = "take5.ActivitySelection";
             _typeNameTable[4] = "take5.HourSelection";
             _typeNameTable[5] = "take5.MinuteSelection";
 
@@ -136,7 +136,7 @@ namespace take5.take5_XamlTypeInfo
             _typeTable[0] = typeof(global::take5.Common.LayoutAwarePage);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
-            _typeTable[3] = typeof(global::take5.BasicPage1);
+            _typeTable[3] = typeof(global::take5.ActivitySelection);
             _typeTable[4] = typeof(global::take5.HourSelection);
             _typeTable[5] = typeof(global::take5.MinuteSelection);
         }
@@ -174,7 +174,7 @@ namespace take5.take5_XamlTypeInfo
         }
 
         private object Activate_0_LayoutAwarePage() { return new global::take5.Common.LayoutAwarePage(); }
-        private object Activate_3_BasicPage1() { return new global::take5.BasicPage1(); }
+        private object Activate_3_ActivitySelection() { return new global::take5.ActivitySelection(); }
         private object Activate_4_HourSelection() { return new global::take5.HourSelection(); }
         private object Activate_5_MinuteSelection() { return new global::take5.MinuteSelection(); }
 
@@ -202,9 +202,9 @@ namespace take5.take5_XamlTypeInfo
                 xamlType = new global::take5.take5_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 3:   //  take5.BasicPage1
+            case 3:   //  take5.ActivitySelection
                 userType = new global::take5.take5_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("take5.Common.LayoutAwarePage"));
-                userType.Activator = Activate_3_BasicPage1;
+                userType.Activator = Activate_3_ActivitySelection;
                 xamlType = userType;
                 break;
 

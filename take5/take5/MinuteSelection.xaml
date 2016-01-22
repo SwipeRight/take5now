@@ -40,22 +40,22 @@
         <Grid x:Name="Main" HorizontalAlignment="Left" Height="628" VerticalAlignment="Top" Width="1366" Grid.Row="1">
         	<TextBlock x:Name="Instructions" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="81,62,0,0" FontSize="32" Text="Now, refine your break time into a 15 minute segment."/>
         	<Grid x:Name="Minutes" VerticalAlignment="Center" Margin="83,111,83,204" HorizontalAlignment="Center">
-        		<Button x:Name="_00" Content=":00" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="33,0,0,0" RenderTransformOrigin="0.5,0.5" Width="70">
+        		<Button x:Name="_00" Click="select00mins" Content=":00" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="33,0,0,0" RenderTransformOrigin="0.5,0.5" Width="70">
         			<Button.RenderTransform>
         				<CompositeTransform ScaleY="1.5" ScaleX="1.5"/>
         			</Button.RenderTransform>
         		</Button>
-        		<Button x:Name="_15" Content=":15" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="166,0,0,0" RenderTransformOrigin="0.5,0.5" Width="70">
+        		<Button x:Name="_15" Click="select15mins" Content=":15" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="166,0,0,0" RenderTransformOrigin="0.5,0.5" Width="70">
         			<Button.RenderTransform>
         				<CompositeTransform ScaleX="1.5" ScaleY="1.5"/>
         			</Button.RenderTransform>
         		</Button>
-        		<Button x:Name="_30" Content=":30" HorizontalAlignment="Left" VerticalAlignment="Center" Width="70" RenderTransformOrigin="0.5,0.5" Margin="299,0,0,0">
+        		<Button x:Name="_30" Click="select30mins" Content=":30" HorizontalAlignment="Left" VerticalAlignment="Center" Width="70" RenderTransformOrigin="0.5,0.5" Margin="299,0,0,0">
         			<Button.RenderTransform>
         				<CompositeTransform ScaleX="1.5" ScaleY="1.5"/>
         			</Button.RenderTransform>
         		</Button>
-        		<Button x:Name="_45" Content=":45" HorizontalAlignment="Left" VerticalAlignment="Center" Width="70" RenderTransformOrigin="0.5,0.5" Margin="432,0,0,0">
+        		<Button x:Name="_45" Click="select45mins" Content=":45" HorizontalAlignment="Left" VerticalAlignment="Center" Width="70" RenderTransformOrigin="0.5,0.5" Margin="432,0,0,0">
         			<Button.RenderTransform>
         				<CompositeTransform ScaleX="1.5" ScaleY="1.5"/>
         			</Button.RenderTransform>
