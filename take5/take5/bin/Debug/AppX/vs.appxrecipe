@@ -17,17 +17,17 @@
     <AppXManifest Include="C:\Users\Martin_Nikolaev\Source\Repos\take5now\take5\take5\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-01-21T20:51:50.827</Modified>
+      <Modified>2016-01-21T23:24:05.305</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Martin_Nikolaev\Source\Repos\take5now\take5\take5\bin\Debug\take5.exe">
       <PackagePath>take5.exe</PackagePath>
-      <Modified>2016-01-21T21:49:02.616</Modified>
+      <Modified>2016-01-21T23:25:03.300</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Martin_Nikolaev\Source\Repos\take5now\take5\Database\bin\Debug\Database.dll">
       <PackagePath>Database.dll</PackagePath>
-      <Modified>2016-01-21T21:49:00.871</Modified>
+      <Modified>2016-01-21T23:24:02.671</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Martin_Nikolaev\Source\Repos\take5now\take5\take5\Assets\Logo.png">
       <PackagePath>Assets\Logo.png</PackagePath>
@@ -55,7 +55,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Martin_Nikolaev\Source\Repos\take5now\take5\take5\bin\Debug\ActivitySelection.xbf">
       <PackagePath>ActivitySelection.xbf</PackagePath>
-      <Modified>2016-01-21T20:23:26.058</Modified>
+      <Modified>2016-01-21T23:24:04.294</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Martin_Nikolaev\Source\Repos\take5now\take5\take5\bin\Debug\HourSelection.xbf">
       <PackagePath>HourSelection.xbf</PackagePath>
@@ -71,7 +71,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Martin_Nikolaev\Source\Repos\take5now\take5\take5\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2016-01-21T21:44:33.929</Modified>
+      <Modified>2016-01-21T23:24:05.110</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

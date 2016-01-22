@@ -11,7 +11,7 @@ namespace take5.Classes
     class Middleware
     {
         private Person localUser;
-        private DatabaseConnection dbConn;
+        private DatabaseConnection dbConn = new DatabaseConnection();
 
         public void login()
         {
@@ -28,9 +28,9 @@ namespace take5.Classes
             return localUser;
         }
 
-        public void addPersonToQueue(Person localUser, int Activity)
+        public void addPersonToQueue(Person localUser, int activityID)
         {
-             
+            dbConn.addUserToQueue(localUser, activityID);
         }
 
         public void removePersonFromQueue()
@@ -38,9 +38,9 @@ namespace take5.Classes
             
         }
 
-        public void matchPeopleFromQueue()
+        public void matchPeopleFromQueue(int activityID)
         {
-            
+           // dbConn.
         }
         
 

@@ -11,7 +11,9 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Database;
 using take5.Classes;
+using take5.Common;
 
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234237
 
@@ -23,6 +25,7 @@ namespace take5
     public sealed partial class BasicPage1 : take5.Common.LayoutAwarePage
     {
         private Middleware middleware;
+
 
         public BasicPage1()
         {
@@ -40,6 +43,7 @@ namespace take5
         /// session.  This will be null the first time a page is visited.</param>
         protected override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
         {
+            middleware = new Middleware();
         }
 
         /// <summary>
@@ -50,15 +54,44 @@ namespace take5
         /// <param name="pageState">An empty dictionary to be populated with serializable state.</param>
         protected override void SaveState(Dictionary<String, Object> pageState)
         {
+            
+        }
+
+        private void poolButtonClick(object sender, RoutedEventArgs e)
+        {
+            int buttonID = 1;
+            addUserToQueue(buttonID);
         }
 
         private void coffeeButtonClick(object sender, RoutedEventArgs e)
         {
             int buttonID = 2;
-
-            middleware = new Middleware();
-
+            addUserToQueue(buttonID);
             
         }
+
+        private void tenisButtonClick(object sender, RoutedEventArgs e)
+        {
+            int buttonID = 3;
+            addUserToQueue(buttonID);
+
+        }
+
+        private void walkButtonClick(object sender, RoutedEventArgs e)
+        {
+            int buttonID = 4;
+            addUserToQueue(buttonID);
+
+        }
+
+        private void addUserToQueue(int activityID)
+        {
+            Person localUser = new Person();
+            localUser.userID = 12312;
+            localUser.userEmail = "testemail@dell.com";
+            middleware.addPersonToQueue(localUser, activityID);
+        }
+
+        
     }
 }

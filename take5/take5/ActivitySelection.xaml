@@ -39,7 +39,7 @@
         <Grid x:Name="Main" HorizontalAlignment="Left" Height="628" VerticalAlignment="Top" Width="1366" Grid.Row="1">
         	<TextBlock x:Name="Instructions" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="81,62,0,0" FontSize="32" Text="What would you like to do during your break?"/>
         	<Grid x:Name="Activities" VerticalAlignment="Center" Margin="83,111,83,204" HorizontalAlignment="Center">
-        		<Button x:Name="Pool" Content="Pool" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="33,0,0,0" RenderTransformOrigin="0.75,0.75" Width="145" Height="60" FontSize="18.667">
+        		<Button x:Name="Pool" Content="Pool" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="33,0,0,0" RenderTransformOrigin="0.75,0.75" Width="145" Height="60" FontSize="18.667" Click="poolButtonClick">
         			<Button.RenderTransform>
         				<CompositeTransform ScaleY="1.5" ScaleX="1.5" TranslateX="8.75" TranslateY="4.75"/>
         			</Button.RenderTransform>
@@ -49,12 +49,12 @@
         				<CompositeTransform ScaleX="1.5" ScaleY="1.5"/>
         			</Button.RenderTransform>
         		</Button>
-        		<Button x:Name="Table_Tennis" Content="Table Tennis" HorizontalAlignment="Left" VerticalAlignment="Center" Width="145" RenderTransformOrigin="0.5,0.5" Margin="533,0,0,0" Height="60" FontSize="18.667">
+        		<Button x:Name="Table_Tennis" Content="Table Tennis" HorizontalAlignment="Left" VerticalAlignment="Center" Width="145" RenderTransformOrigin="0.5,0.5" Margin="533,0,0,0" Height="60" FontSize="18.667" Click="tenisButtonClick">
         			<Button.RenderTransform>
         				<CompositeTransform ScaleX="1.5" ScaleY="1.5"/>
         			</Button.RenderTransform>
         		</Button>
-        		<Button x:Name="Walk" Content="Walk" HorizontalAlignment="Left" VerticalAlignment="Center" Width="145" RenderTransformOrigin="0.5,0.5" Margin="783,0,0,0" Height="60" FontSize="18.667">
+        		<Button x:Name="Walk" Content="Walk" HorizontalAlignment="Left" VerticalAlignment="Center" Width="145" RenderTransformOrigin="0.5,0.5" Margin="783,0,0,0" Height="60" FontSize="18.667" Click="walkButtonClick">
         			<Button.RenderTransform>
         				<CompositeTransform ScaleX="1.5" ScaleY="1.5"/>
         			</Button.RenderTransform>

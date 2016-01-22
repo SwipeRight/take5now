@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Xaml.Automation.Peers;
 
 namespace Database
 {
@@ -71,25 +73,34 @@ namespace Database
 
         }
 
-        private static void removeMatch(int index)
+        public static void CheckForMatch(int activityId)
+        {
+            int match = Queues.FindIndex(queue => queue.getUserActivity() == activityId);
+            if (match > 0)
+            {
+                
+            }
+        }
+
+        private static void RemoveMatch(int index)
         {
             Matches.RemoveAt(index);
         }
 
-        private static void addToHistory(int index)
+        private static void AddToHistory(int index)
         {
             History.Add(Matches.ElementAt(index));
         }
 
-        public static void addUserToQueue(int test)
+        public static void AddUserToQueue(Person localUser, int activityID)
         {
-            
+            Queues.Add(new Queue(getQueueIndex(), localUser, activityID));
         }
 
         public static void moveToHistory(int index)
         {
-            addToHistory(index);
-            removeMatch(index);
+            AddToHistory(index);
+            RemoveMatch(index);
         }
 
         private static int getUsersIndex()

@@ -9,17 +9,26 @@ namespace Database
     class Queue
     {
 
-        private int index;
-        private Person User;
-        private int activity;
+        private int Index { get; set; }
+        private Person User { get; set; }
+        private int Activity { get; set; }
 
         public Queue(int index, Person user, int activity)
         {
-            this.index = index;
+            this.Index = index;
             this.User = user;
-            this.activity = activity;
+            this.Activity = activity;
         }
 
+        public int getUserActivity()
+        {
+            return Activity;
+        }
+
+        public Person GetPerson()
+        {
+            return User;
+        }
 
     }
 }
