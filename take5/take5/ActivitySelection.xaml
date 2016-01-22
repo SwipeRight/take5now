@@ -1,6 +1,6 @@
 ﻿<common:LayoutAwarePage
     x:Name="pageRoot"
-    x:Class="take5.BasicPage1"
+    x:Class="take5.ActivitySelection"
     DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -12,7 +12,8 @@
 
     <Page.Resources>
 
-        <!-- TODO: Delete this line if the key AppName is declared in App.xaml -->
+        <!-- TODO: Delete this line if the 
+ AppName is declared in App.xaml -->
         <x:String x:Key="AppName">My Application</x:String>
     </Page.Resources>
 
@@ -39,22 +40,22 @@
         <Grid x:Name="Main" HorizontalAlignment="Left" Height="628" VerticalAlignment="Top" Width="1366" Grid.Row="1">
         	<TextBlock x:Name="Instructions" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="81,62,0,0" FontSize="32" Text="What would you like to do during your break?"/>
         	<Grid x:Name="Activities" VerticalAlignment="Center" Margin="83,111,83,204" HorizontalAlignment="Center">
-        		<Button x:Name="Pool" Content="Pool" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="33,0,0,0" RenderTransformOrigin="0.75,0.75" Width="145" Height="60" FontSize="18.667" Click="poolButtonClick">
+        		<Button x:Name="Pool" Click="selectPool" Content="Pool" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="33,0,0,0" RenderTransformOrigin="0.75,0.75" Width="145" Height="60" FontSize="18.667">
         			<Button.RenderTransform>
         				<CompositeTransform ScaleY="1.5" ScaleX="1.5" TranslateX="8.75" TranslateY="4.75"/>
         			</Button.RenderTransform>
         		</Button>
-        		<Button x:Name="Coffee" Content="Coffee" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="283,0,0,0" RenderTransformOrigin="0.5,0.5" Width="145" Height="60" FontSize="18.667" Click="coffeeButtonClick">
+        		<Button x:Name="Coffee" Click="selectCoffee" Content="Coffee" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="283,0,0,0" RenderTransformOrigin="0.5,0.5" Width="145" Height="60" FontSize="18.667">
         			<Button.RenderTransform>
         				<CompositeTransform ScaleX="1.5" ScaleY="1.5"/>
         			</Button.RenderTransform>
         		</Button>
-        		<Button x:Name="Table_Tennis" Content="Table Tennis" HorizontalAlignment="Left" VerticalAlignment="Center" Width="145" RenderTransformOrigin="0.5,0.5" Margin="533,0,0,0" Height="60" FontSize="18.667" Click="tenisButtonClick">
+        		<Button x:Name="Table_Tennis" Click="selectTable_Tennis" Content="Table Tennis" HorizontalAlignment="Left" VerticalAlignment="Center" Width="145" RenderTransformOrigin="0.5,0.5" Margin="533,0,0,0" Height="60" FontSize="18.667">
         			<Button.RenderTransform>
         				<CompositeTransform ScaleX="1.5" ScaleY="1.5"/>
         			</Button.RenderTransform>
         		</Button>
-        		<Button x:Name="Walk" Content="Walk" HorizontalAlignment="Left" VerticalAlignment="Center" Width="145" RenderTransformOrigin="0.5,0.5" Margin="783,0,0,0" Height="60" FontSize="18.667" Click="walkButtonClick">
+        		<Button x:Name="Walk" Content="Walk" Click="selectWalk" HorizontalAlignment="Left" VerticalAlignment="Center" Width="145" RenderTransformOrigin="0.5,0.5" Margin="783,0,0,0" Height="60" FontSize="18.667">
         			<Button.RenderTransform>
         				<CompositeTransform ScaleX="1.5" ScaleY="1.5"/>
         			</Button.RenderTransform>
