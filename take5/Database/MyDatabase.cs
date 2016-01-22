@@ -12,10 +12,9 @@ namespace Database
     {
         private static List<Activity> Activities = new List<Activity>();
         private static List<Person> Users = new List<Person>();
-        private static List<Match> Matches = new List<Match>();
-        private static List<Match> History = new List<Match>();
+        public static List<Match> Matches = new List<Match>();
         private static List<Queue> Queues = new List<Queue>();
-         
+
 
         public static void InitialiseDataBase()
         {
@@ -27,111 +26,92 @@ namespace Database
 
         private static void InitiliseQueues()
         {
-            Queues.Add(new Queue(getQueueIndex(), Users.ElementAt(0), Activities.ElementAt(0).index));
-            Queues.Add(new Queue(getQueueIndex(), Users.ElementAt(1), Activities.ElementAt(1).index));
-            Queues.Add(new Queue(getQueueIndex(), Users.ElementAt(1), Activities.ElementAt(1).index));
-            Queues.Add(new Queue(getQueueIndex(), Users.ElementAt(1), Activities.ElementAt(1).index));
-            Queues.Add(new Queue(getQueueIndex(), Users.ElementAt(1), Activities.ElementAt(1).index));
-            Queues.Add(new Queue(getQueueIndex(), Users.ElementAt(1), Activities.ElementAt(1).index));
-            //Queues.Add(new Queue(getQueueIndex(), Users.ElementAt(2), Activities.ElementAt(2).index));
- 
+            //Queues.Add(new Queue(Users.ElementAt(0), Activities.FindIndex(x => x.name.Equals("Coffee"))));
+            //Queues.Add(new Queue(Users.ElementAt(1), Activities.FindIndex(x => x.name.Equals("Pool"))));
+
+
 
         }
 
         private static void InitialiseMatches()
         {
-            
+
         }
 
 
         private static void InitialiseActivities()
         {
             Activities = new List<Activity>();
-            
-            Activities.Add(new Activity(getActivitiesIndex(), "Pool"));
-            Activities.Add(new Activity(getActivitiesIndex(), "Coffee"));
-            Activities.Add(new Activity(getActivitiesIndex(), "Tenis"));
-            Activities.Add(new Activity(getActivitiesIndex(), "Walk"));
-            
+
+            Activities.Add(new Activity("Pool"));
+            Activities.Add(new Activity("Coffee"));
+            Activities.Add(new Activity("Tenis"));
+            Activities.Add(new Activity("Walk"));
+
         }
 
         private static void InitialiseUsers()
         {
             Users = new List<Person>();
-            Users.Add(new Person(getUsersIndex(), "martin_nikolaev@dell.com"));
-            Users.Add(new Person(getUsersIndex(), "delltest@dell.com"));
+            Users.Add(new Person("martin_nikolaev@dell.com"));
+            Users.Add(new Person("delltest@dell.com"));
         }
 
         public static void addUserToDatabase(Person thisPerson)
         {
-            thisPerson.userID = getUsersIndex();
             Users.Add(thisPerson);
         }
 
-        public static void newMatch(int index, int UserID1, int UserID2, int Activity, long timeStamp)
-        {
-            Matches.Add(new Match(index, UserID1, UserID2, Activity, timeStamp));
 
+
+        public static bool CheckForMatch(Person localUser, string activityId)
+        {
+            int match;
+            match = Queues.FindIndex(queue => queue.getUserActivity().Equals(Activities.FindIndex(x => x.name.Equals(activityId))));
+
+            if (match >= 0)
+            {
+                Matches.Add(new Match(localUser, Queues.ElementAt(match).GetPerson(), Activities.FindIndex(x => x.name.Equals(activityId))));
+                Queues.RemoveAt(match);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
-        public static int CheckForMatch(int activityId)
+        public static Person getUserDetails(int index)
         {
-            int match = Queues.FindIndex(queue => queue.getUserActivity() == activityId);
-            
-            if (match > 0)
-            {
-                return match;
-            }else{
-                return -1;
-            }
+            return Users.ElementAt(index);
         }
 
         public static int getUserDetailsFromQueue(int index)
         {
-            if (index > 0)
+            if (index >= 0)
             {
                 return Queues.ElementAt(index).GetPerson().userID;
             }
             else
             {
-                return 0;
+                return -1;
             }
         }
 
-        private static void RemoveMatch(int index)
+        public static void RemoveMatch(Person userToBeRemovedFromQueue)
         {
-            Matches.RemoveAt(index);
+            Matches.RemoveAt(Matches.FindIndex(x => x.getUser2Details().userEmail.Equals(userToBeRemovedFromQueue.userEmail)));
         }
 
-        private static void AddToHistory(int index)
+
+        public static void RemoveUserFromQueue(Person userToBeRemovedFromQueue)
         {
-            History.Add(Matches.ElementAt(index));
+            Queues.RemoveAt(Queues.FindIndex(x => x.GetPerson().userEmail.Equals(userToBeRemovedFromQueue.userEmail)));
         }
 
-        public static void AddUserToQueue(Person localUser, int activityID)
+        public static void AddUserToQueue(Person localUser, string activityId)
         {
-            Queues.Add(new Queue(getQueueIndex(), localUser, activityID));
-        }
-
-        public static void moveToHistory(int index)
-        {
-            AddToHistory(index);
-            RemoveMatch(index);
-        }
-
-        private static int getUsersIndex()
-        {
-            return Users.Count + 1;
-        }
-
-        private static int getQueueIndex()
-        {
-            return Queues.Count;
-        }
-
-        private static int getActivitiesIndex()
-        {
-            return Activities.Count + 1;
+            Queues.Add(new Queue(localUser, Activities.FindIndex(x => x.name.Equals(activityId))));
         }
     }
 }

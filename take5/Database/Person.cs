@@ -15,17 +15,13 @@ namespace Database
             this.userID = 0;
             this.userEmail = "";
         }
-        public Person(int userID, string userEmail)
+        public Person(string userEmail)
         {
             this.userID = userID;
             this.userEmail = userEmail;
             //testajsdasdsd
         }
 
-        public Person(Person myPerson)
-        {
-            this.userEmail = myPerson.userEmail;
-            this.userID = myPerson.userID;
-        }
+
     }
 }

@@ -22,26 +22,21 @@ namespace take5.Classes
             //test.addUserToDatabase(localUser);
         }
 
-        public void addUserToQueue(Person localuser, int activityID)
+        public void addUserToQueue(Person localuser, string activityID)
         {
-            int matchedAlready = checkForMatch(activityID);
-            if (matchedAlready >= 0)
-            {
-                MyDatabase.getUserDetailsFromQueue(matchedAlready);
-            }
-            else
-            {
-                MyDatabase.AddUserToQueue(localuser, activityID);
-            }
+            MyDatabase.AddUserToQueue(localuser, activityID);
 
         }
 
-        public int checkForMatch(int activityID)
+        public bool checkIfCanMatch(Person localUser, string activityID)
         {
-            int matchedAlready = MyDatabase.CheckForMatch(activityID);
+            return MyDatabase.CheckForMatch(localUser, activityID);
 
-            return MyDatabase.getUserDetailsFromQueue(matchedAlready);
+        }
 
+        public Person getUserDetailsFromMatchingQueue(int index)
+        {
+            return MyDatabase.Matches.ElementAt(index).getUser2Details();
         }
 
     }
