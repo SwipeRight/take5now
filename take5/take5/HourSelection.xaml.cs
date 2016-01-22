@@ -38,6 +38,11 @@ namespace take5
         {
             this.InitializeComponent();
         }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            base.OnNavigatedFrom(e);
+        }
 		
 		int i = 12;
 		
@@ -56,27 +61,25 @@ namespace take5
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-
+            base.OnNavigatedTo(e);
             var parameter = e.Parameter as string;
             this.DataContext = this;
             myDB = new DatabaseConnection();
             myDB.initialiseDatabase();
             middleware = new Middleware();
-            
-
             middleware.login();
         }
 		
 		private void select9am(object sender, RoutedEventArgs e)
 		{
 			payload.hour = 9;
-			this.Frame.Navigate(typeof(HourSelection), payload);
+			this.Frame.Navigate(typeof(MinuteSelection), payload);
 		}
 		
 		private void select10am(object sender, RoutedEventArgs e)
 		{
             payload.hour = 10;
-			this.Frame.Navigate(typeof(HourSelection), payload);
+			this.Frame.Navigate(typeof(MinuteSelection), payload);
 		}
 		
 		private void select11am(object sender, RoutedEventArgs e)

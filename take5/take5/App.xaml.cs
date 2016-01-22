@@ -64,7 +64,7 @@ namespace take5
                 // When the navigation stack isn't restored navigate to the first page,
                 // configuring the new page by passing required information as a navigation
                 // parameter
-                if (!rootFrame.Navigate(typeof(BasicPage1), args.Arguments))
+                if (!rootFrame.Navigate(typeof(HourSelection), args.Arguments))
                 {
                     throw new Exception("Failed to create initial page");
                 }
